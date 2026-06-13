@@ -75,7 +75,7 @@ export default function Hero() {
         variants={container}
         initial="hidden"
         animate="show"
-        className="mx-auto flex max-w-3xl flex-col items-center pt-10 text-center"
+        className="mx-auto flex max-w-5xl flex-col items-center pt-10 text-center"
       >
         <motion.div
           variants={{
