@@ -98,6 +98,7 @@ export const site = {
     title: "Parliamone",
     intro:
       "Fare il primo passo è spesso la parte più difficile. Scrivimi pure: ti risponderò il prima possibile, con calma e riservatezza.",
+    submit: "Invia messaggio",
     formNote: "I tuoi dati restano riservati e non saranno condivisi.",
   },
 } as const;
