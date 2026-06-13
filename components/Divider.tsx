@@ -1,6 +1,12 @@
 type Tone = "canvas" | "surface" | "peach" | "peach-deep";
 
-const toneColor: Record<Tone, string> = {
+const bg: Record<Tone, string> = {
+  canvas: "bg-canvas",
+  surface: "bg-surface",
+  peach: "bg-peach",
+  "peach-deep": "bg-peach-deep",
+};
+const fill: Record<Tone, string> = {
   canvas: "text-canvas",
   surface: "text-surface",
   peach: "text-peach",
@@ -8,30 +14,33 @@ const toneColor: Record<Tone, string> = {
 };
 
 type Props = {
-  /** Color of the band this wave flows into. */
-  tone?: Tone;
+  /** Color above the wave (the band you're leaving). */
+  from?: Tone;
+  /** Color of the wave (the band you're entering). */
+  to?: Tone;
   flip?: boolean;
   className?: string;
 };
 
 /**
  * Organic wave that melts one band into the next — no hard edges, no gaps.
- * Two overlapping curves give the join a soft, hand-painted depth.
+ * Background is the previous band's color; the wave is the next band's color.
  */
 export default function Divider({
-  tone = "peach",
+  from = "canvas",
+  to = "peach",
   flip = false,
   className = "",
 }: Props) {
   return (
     <div
       aria-hidden="true"
-      className={`pointer-events-none -mb-px w-full leading-[0] ${toneColor[tone]} ${className}`}
+      className={`pointer-events-none w-full leading-[0] ${bg[from]} ${fill[to]} ${className}`}
     >
       <svg
         viewBox="0 0 1440 110"
         preserveAspectRatio="none"
-        className={`block h-[clamp(2.5rem,6vw,5rem)] w-full ${flip ? "rotate-180" : ""}`}
+        className={`block h-[clamp(2.5rem,6vw,5rem)] w-full ${flip ? "-scale-x-100" : ""}`}
       >
         <path
           d="M0,52 C180,104 360,16 600,44 C840,72 1020,108 1200,80 C1320,62 1392,40 1440,36 L1440,110 L0,110 Z"
