@@ -1,27 +1,36 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useState, useSyncExternalStore } from "react";
 import { usePathname } from "next/navigation";
 import FlameLogo from "./FlameLogo";
 import { site } from "@/content/site";
 
+function subscribeScroll(callback: () => void) {
+  window.addEventListener("scroll", callback, { passive: true });
+  return () => window.removeEventListener("scroll", callback);
+}
+
+function useScrolled() {
+  return useSyncExternalStore(
+    subscribeScroll,
+    () => window.scrollY > 24,
+    () => false,
+  );
+}
+
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
-  const [open, setOpen] = useState(false);
+  const scrolled = useScrolled();
   const pathname = usePathname();
+  const [open, setOpen] = useState(false);
 
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  // Close the mobile menu on route change.
-  useEffect(() => {
+  // Close the mobile menu on navigation — adjust state during render
+  // (React's documented pattern; no effect needed).
+  const [lastPath, setLastPath] = useState(pathname);
+  if (pathname !== lastPath) {
+    setLastPath(pathname);
     setOpen(false);
-  }, [pathname]);
+  }
 
   return (
     <header
@@ -69,7 +78,6 @@ export default function Navbar() {
           aria-label={open ? "Chiudi menu" : "Apri menu"}
           className="relative z-10 grid h-10 w-10 place-items-center rounded-full text-ink transition hover:bg-peach/60 md:hidden"
         >
-          <span className="sr-only">Menu</span>
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
             {open ? (
               <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />

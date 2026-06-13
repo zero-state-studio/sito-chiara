@@ -116,7 +116,7 @@ export default function ContactBox() {
 
           {status === "error" && (
             <p className="text-sm font-medium text-brand-deep" role="alert">
-              Qualcosa è andato storto nell'invio. Riprova, oppure scrivimi a{" "}
+              Qualcosa è andato storto nell’invio. Riprova, oppure scrivimi a{" "}
               <a className="underline" href={`mailto:${site.email}`}>
                 {site.email}
               </a>
