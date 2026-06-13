@@ -94,6 +94,12 @@ export const site = {
     ],
   },
 
+  cta: {
+    title: "Facciamo il primo passo insieme",
+    text: "Se senti che è il momento, scrivimi: ci prendiamo il tempo che serve.",
+    button: "Scrivimi",
+  },
+
   contatti: {
     title: "Parliamone",
     intro:

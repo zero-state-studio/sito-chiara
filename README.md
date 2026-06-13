@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Sito Chiara Lodovici — Psicologa
 
-## Getting Started
+Sito vetrina della psicologa Chiara Lodovici. Next.js (App Router) + Tailwind v4,
+solo modalità light, palette calda pastello, scroll dinamico. Ottimizzato per Vercel.
 
-First, run the development server:
+- **Design system:** vedi `DESIGN.md`
+- **Strategia / brand:** vedi `PRODUCT.md`
+- **Pagine:** Home (`/`), Chi sono, Cosa faccio, Progetti, Contatti
+
+## Stack
+
+Next.js 16 · React 19 · TypeScript · Tailwind CSS v4 · Framer Motion · Vitest
+
+## Sviluppo
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+cp .env.local.example .env.local   # inserisci NEXT_PUBLIC_WEB3FORMS_KEY
+npm run dev                         # http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Comandi:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run build   # build di produzione
+npm run lint    # eslint
+npm test        # vitest
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Form contatti
 
-## Learn More
+Il form usa [Web3Forms](https://web3forms.com) (nessun backend). Crea una access key
+gratuita associata a `psico.chiaralodovici@gmail.com` e impostala in
+`NEXT_PUBLIC_WEB3FORMS_KEY`. I messaggi arrivano a quella casella.
 
-To learn more about Next.js, take a look at the following resources:
+## Deploy su Vercel
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Importa il repo su Vercel (preset Next.js, zero config).
+2. Imposta le variabili d'ambiente in **Project Settings → Environment Variables**:
+   - `NEXT_PUBLIC_WEB3FORMS_KEY` — access key Web3Forms
+   - `NEXT_PUBLIC_SITE_URL` — URL pubblico (es. `https://chiaralodovici.it`), usato da
+     metadata, `robots.txt` e `sitemap.xml`
+3. Deploy.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Contenuti
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Tutti i testi sono in `content/site.ts` — modificali lì per aggiornare il sito.
+La foto di Chiara (pagina *Chi sono*) è un placeholder ad acquerello: sostituiscilo
+con la foto reale quando disponibile.
