@@ -16,8 +16,8 @@ export const site = {
 
   landing: {
     kicker: "Psicologa",
-    hero: "Uno spazio altro dove osservarsi e sviluppare consapevolezza",
-    sub: "Leggere e ri-significare i segni che ognuno di noi si porta addosso è ciò che mi guida nella professione. Mettere in dialogo le emozioni e i vissuti per comprendere come ci sentiamo, per poterci situare attivamente nelle relazioni che viviamo.",
+    hero: "Uno spazio dove osservarsi e acquisire consapevolezza",
+    sub: "Mettere in dialogo le emozioni e i vissuti per comprendere come ci sentiamo per poterci situare attivamente nelle relazioni che viviamo.",
     cta: "Scrivimi",
     ctaSecondary: "Scopri chi sono",
     teaserTitle: "Da dove vuoi cominciare?",
@@ -30,7 +30,7 @@ export const site = {
       {
         href: "/cosa-faccio",
         label: "Cosa faccio",
-        text: "Percorsi su misura per te: terapia individuale, coppia, gestione dell'ansia.",
+        text: "Percorsi su misura: percorsi psicologici, formazioni e laboratori.",
       },
       {
         href: "/progetti",
@@ -42,10 +42,11 @@ export const site = {
 
   chiSono: {
     title: "Chi sono",
-    lead: "Sono Chiara Lodovici, psicologa.",
+    lead: "Sono Chiara Lodovici.",
     body: [
-      "Credo in una relazione di cura fondata su ascolto, rispetto e fiducia. Non esistono percorsi uguali: ognuno porta con sé la propria storia, i propri tempi e le proprie risorse.",
-      "Il mio lavoro mette al centro la persona, in uno spazio accogliente e senza giudizio, dove sentirsi liberi di essere sé stessi è già il primo passo del cambiamento.",
+      "Mi chiamo Chiara e sono una Psicologa e Specializzanda in Psicoterapia Sistemico-Dialogica. Leggere e ri-significare quei «segni che ognuno di noi si porta addosso» è ciò che mi guida nella professione.",
+      "Mi occupo di percorsi psicologici prevalentemente con adulti e adolescenti. Al di fuori dello studio, lavoro con adolescenti e giovani adulti in educativa di prossimità e in ambito penitenziario.",
+      "Da diversi anni sono inoltre co-founder di Calm, team di psicologi che, in collaborazione con altri professionisti, sviluppa progetti in ambito socio-educativo.",
     ],
     valuesTitle: "Ciò in cui credo",
     values: ["Ascolto", "Empatia", "Riservatezza", "Crescita"],
@@ -57,20 +58,16 @@ export const site = {
     lead: "Percorsi pensati intorno a te, ai tuoi tempi e ai tuoi obiettivi.",
     services: [
       {
-        title: "Terapia individuale",
-        text: "Un percorso personale per attraversare ansia, stress e momenti di difficoltà, ritrovando chiarezza e fiducia.",
+        title: "Percorsi psicologici individuali, di coppia e familiari",
+        text: "Spazi di ascolto e cura su misura — per la persona, la coppia e la famiglia — per attraversare le difficoltà e ritrovare equilibrio.",
       },
       {
-        title: "Sostegno di coppia",
-        text: "Uno spazio di dialogo protetto per riscoprire comprensione, ascolto e vicinanza.",
+        title: "Formazioni esperienziali",
+        text: "Percorsi formativi che passano dal vissuto: si apprende facendo, sentendo e rielaborando insieme.",
       },
       {
-        title: "Gestione dell'ansia",
-        text: "Strumenti concreti per riconoscere l'ansia e ritrovare calma nel quotidiano.",
-      },
-      {
-        title: "Percorsi di crescita",
-        text: "Conoscersi meglio per vivere con più consapevolezza, serenità e libertà.",
+        title: "Laboratori",
+        text: "Attività di gruppo per esplorare emozioni, relazioni e consapevolezza in modo pratico e condiviso.",
       },
     ],
   },
@@ -78,40 +75,31 @@ export const site = {
   progetti: {
     title: "Progetti",
     lead: "Il benessere non si ferma alla porta dello studio.",
+    // Ogni voce ha una pagina di dettaglio in /progetti/[slug].
     items: [
       {
-        title: "Gruppi di ascolto",
-        text: "Incontri di gruppo dedicati al benessere emotivo e alla condivisione.",
+        slug: "calm",
+        title: "CALM",
+        summary:
+          "Team di psicologi che, in collaborazione con altri professionisti, sviluppa progetti in ambito socio-educativo.",
+        body: [
+          "CALM è un team di psicologi di cui sono co-founder. Insieme ad altri professionisti, sviluppiamo progetti in ambito socio-educativo, portando l'ascolto e la cura psicologica dentro i contesti di vita delle persone.",
+          "Lavoriamo con scuole, comunità ed enti del territorio per costruire spazi di confronto, prevenzione e crescita condivisa.",
+          "Descrizione in aggiornamento — aggiungi qui i dettagli e le iniziative del progetto.",
+        ],
       },
       {
-        title: "Workshop benessere",
-        text: "Laboratori pratici su gestione dello stress, emozioni e mindfulness.",
-      },
-      {
-        title: "Sportello scuole",
-        text: "Supporto psicologico per studenti, insegnanti e famiglie.",
+        slug: "oltre-le-parole",
+        title: "Oltre le parole: Narrazioni condivise",
+        summary:
+          "Un percorso di narrazione condivisa per dare voce ai vissuti e costruire significati insieme.",
+        body: [
+          "«Oltre le parole: Narrazioni condivise» è un progetto dedicato al racconto di sé e all'ascolto reciproco, dove la narrazione diventa strumento di cura e di relazione.",
+          "Descrizione in aggiornamento — aggiungi qui gli obiettivi, le attività e i destinatari del progetto.",
+        ],
       },
     ],
-    timelineTitle: "Cronostoria",
-    timelineLead: "Le iniziative e i progetti che porto avanti, anno dopo anno.",
-    // Ordine cronologico decrescente (dal più recente). Aggiungi voci in cima.
-    timeline: [
-      {
-        year: "2022",
-        title: "Gruppo di ascolto CALM",
-        text: "Avvio del gruppo di ascolto CALM: uno spazio di confronto e sostegno emotivo condiviso.",
-      },
-      {
-        year: "20XX",
-        title: "Titolo del progetto",
-        text: "Descrizione del progetto — sostituisci con i dettagli reali.",
-      },
-      {
-        year: "20XX",
-        title: "Titolo del progetto",
-        text: "Descrizione del progetto — sostituisci con i dettagli reali.",
-      },
-    ],
+    detailBack: "Tutti i progetti",
   },
 
   cta: {
