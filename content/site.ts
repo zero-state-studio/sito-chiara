@@ -49,7 +49,7 @@ export const site = {
     ],
     valuesTitle: "Ciò in cui credo",
     values: ["Ascolto", "Empatia", "Riservatezza", "Crescita"],
-    photoAlt: "Ritratto di Chiara Lodovici (foto in arrivo)",
+    photoAlt: "Ritratto di Chiara Lodovici, psicologa, sorridente a braccia conserte",
   },
 
   cosaFaccio: {

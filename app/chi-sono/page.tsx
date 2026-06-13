@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Section from "@/components/Section";
 import Reveal from "@/components/Reveal";
 import Blob from "@/components/Blob";
-import FlameLogo from "@/components/FlameLogo";
 import CtaBand from "@/components/CtaBand";
 import { site } from "@/content/site";
 
@@ -29,23 +29,29 @@ export default function ChiSono() {
             </div>
           </Reveal>
 
-          {/* portrait — watercolor vignette placeholder for the real photo */}
+          {/* portrait */}
           <Reveal delay={120}>
             <figure className="relative mx-auto w-full max-w-xs">
-              <div
-                role="img"
-                aria-label={site.chiSono.photoAlt}
-                className="relative grid aspect-[4/5] place-items-center overflow-hidden rounded-blob ring-1 ring-brand/20"
-                style={{
-                  background:
-                    "radial-gradient(70% 60% at 35% 30%, var(--color-brand-glow) 0%, transparent 70%), radial-gradient(60% 70% at 75% 80%, var(--color-peach-deep) 0%, var(--color-peach) 80%)",
-                }}
-              >
-                <FlameLogo size={56} />
+              {/* watercolor halo so the photo sits in the brand world */}
+              <span
+                aria-hidden="true"
+                className="absolute -inset-3 -z-10 rounded-blob bg-peach-deep/50 blur-xl"
+              />
+              <div className="relative aspect-[4/5] overflow-hidden rounded-blob ring-1 ring-brand/25 shadow-[0_24px_60px_-30px_oklch(0.55_0.15_42/0.6)]">
+                <Image
+                  src="/chiara.jpg"
+                  alt={site.chiSono.photoAlt}
+                  fill
+                  sizes="(max-width: 768px) 80vw, 320px"
+                  className="object-cover object-[center_28%]"
+                  priority
+                />
+                {/* gentle warm wash to tie the cool backdrop into the palette */}
+                <span
+                  aria-hidden="true"
+                  className="absolute inset-0 bg-gradient-to-t from-brand-deep/25 via-transparent to-brand-glow/10 mix-blend-multiply"
+                />
               </div>
-              <figcaption className="mt-3 text-center text-sm italic text-ink-soft">
-                Foto in arrivo
-              </figcaption>
             </figure>
           </Reveal>
         </div>
