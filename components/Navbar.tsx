@@ -40,13 +40,13 @@ export default function Navbar() {
           : "bg-transparent"
       }`}
     >
-      <nav className="mx-auto flex max-w-6xl items-center justify-between px-5 py-3 sm:px-6">
+      <nav className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3 sm:px-8">
         <Link href="/" aria-label={`${site.name} — home`} className="z-10">
-          <FlameLogo size={30} />
+          <FlameLogo size={32} />
         </Link>
 
         {/* desktop */}
-        <ul className="hidden items-center gap-7 text-[0.95rem] md:flex">
+        <ul className="hidden items-center gap-8 text-lg md:flex">
           {site.nav.map((item) => {
             const active = pathname === item.href;
             return (

@@ -4,8 +4,8 @@ import { site } from "@/content/site";
 
 export default function Footer() {
   return (
-    <footer className="relative mt-auto bg-peach-deep px-5 py-12 sm:px-6">
-      <div className="mx-auto grid max-w-6xl gap-8 sm:grid-cols-[1.5fr_1fr]">
+    <footer className="relative mt-auto bg-peach-deep px-5 py-12 sm:px-8 lg:px-12">
+      <div className="mx-auto grid max-w-7xl gap-8 sm:grid-cols-[1.5fr_1fr]">
         <div>
           <FlameLogo withWordmark size={30} />
           <p className="mt-4 max-w-sm text-sm text-ink/80">
@@ -33,7 +33,7 @@ export default function Footer() {
         </nav>
       </div>
 
-      <div className="mx-auto mt-10 max-w-6xl border-t border-ink/10 pt-5 text-xs text-ink/70">
+      <div className="mx-auto mt-10 max-w-7xl border-t border-ink/10 pt-5 text-xs text-ink/70">
         © {site.name} · {site.role}
       </div>
     </footer>

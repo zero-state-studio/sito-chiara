@@ -28,13 +28,19 @@ export default function Section({
   wide = false,
   children,
 }: Props) {
+  // Let an explicit max-w in containerClassName win over the default.
+  const maxW = containerClassName.includes("max-w-")
+    ? ""
+    : wide
+      ? "max-w-7xl"
+      : "max-w-6xl";
   return (
     <section
       id={id}
-      className={`relative isolate overflow-hidden px-5 py-[clamp(3.25rem,7vw,5.5rem)] sm:px-6 ${toneClass[tone]} ${className}`}
+      className={`relative isolate overflow-hidden px-5 py-[clamp(3.25rem,7vw,5.5rem)] sm:px-8 lg:px-12 ${toneClass[tone]} ${className}`}
     >
       <div
-        className={`relative z-10 mx-auto w-full ${wide ? "max-w-6xl" : "max-w-5xl"} ${containerClassName}`}
+        className={`relative z-10 mx-auto w-full ${maxW} ${containerClassName}`}
       >
         {children}
       </div>

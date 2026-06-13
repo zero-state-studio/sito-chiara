@@ -14,41 +14,29 @@ export default function Home() {
 
       <Divider from="canvas" to="peach" />
 
-      {/* reassurance */}
-      <Section tone="peach" containerClassName="max-w-3xl text-center">
-        <Reveal>
-          <p className="font-display text-[clamp(1.6rem,3.4vw,2.5rem)] leading-snug text-brand-deep">
-            Non devi avere già tutte le risposte. Basta il desiderio di
-            ascoltarti — al resto pensiamo insieme.
-          </p>
-        </Reveal>
-      </Section>
-
-      <Divider from="peach" to="canvas" />
-
-      {/* teasers — an editorial list, not a card grid */}
-      <Section>
+      {/* the three voices — a hook for those who want to know more before writing */}
+      <Section tone="peach">
         <Reveal>
           <h2 className="text-[clamp(1.9rem,4vw,2.75rem)] font-semibold text-ink">
             {site.landing.teaserTitle}
           </h2>
         </Reveal>
-        <ul className="mt-8 divide-y divide-line">
+        <ul className="mt-8 divide-y divide-ink/10">
           {site.landing.teasers.map((t, i) => (
             <Reveal key={t.href} as="li" delay={i * 80}>
               <Link
                 href={t.href}
-                className="group flex items-center justify-between gap-6 rounded-3xl px-4 py-6 transition-colors hover:bg-peach/50 sm:px-6"
+                className="group flex items-center justify-between gap-6 rounded-3xl px-4 py-6 transition-colors hover:bg-canvas/60 sm:px-6"
               >
                 <div>
                   <h3 className="text-2xl font-medium text-ink transition-colors group-hover:text-brand-deep sm:text-3xl">
                     {t.label}
                   </h3>
-                  <p className="mt-1.5 max-w-xl text-ink/75">{t.text}</p>
+                  <p className="mt-1.5 max-w-2xl text-ink/75">{t.text}</p>
                 </div>
                 <span
                   aria-hidden="true"
-                  className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-peach text-brand-deep transition-transform duration-300 group-hover:translate-x-1.5"
+                  className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-canvas text-brand-deep transition-transform duration-300 group-hover:translate-x-1.5"
                 >
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
                     <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -60,10 +48,10 @@ export default function Home() {
         </ul>
       </Section>
 
-      <Divider from="canvas" to="peach-deep" />
+      <Divider from="peach" to="peach-deep" />
 
       {/* contact — flows into the footer */}
-      <Section id="contatti" tone="peach-deep" containerClassName="max-w-3xl">
+      <Section id="contatti" tone="peach-deep" containerClassName="max-w-4xl">
         <Blob className="right-[-4rem] top-[-2rem] h-64 w-64" tint="glow" opacity={0.5} />
         <Reveal>
           <ContactBox />

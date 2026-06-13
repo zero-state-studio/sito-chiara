@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 export default function Contatti() {
   return (
     <>
-      <Section containerClassName="max-w-5xl">
+      <Section>
         <Blob className="left-[-5rem] top-6 h-72 w-72" tint="glow" opacity={0.5} />
         <div className="grid gap-10 md:grid-cols-2 md:items-center">
           <Reveal>
