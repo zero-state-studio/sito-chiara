@@ -12,6 +12,10 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Tooling / skill scripts — not app source.
+    ".claude/**",
+    ".gemini/**",
+    "docs/**",
   ]),
 ]);
 
