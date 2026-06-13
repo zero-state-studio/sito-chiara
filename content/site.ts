@@ -77,7 +77,23 @@ export const site = {
 
   progetti: {
     title: "Progetti",
-    lead: "Una cronostoria delle iniziative e dei progetti che porto avanti, anno dopo anno.",
+    lead: "Il benessere non si ferma alla porta dello studio.",
+    items: [
+      {
+        title: "Gruppi di ascolto",
+        text: "Incontri di gruppo dedicati al benessere emotivo e alla condivisione.",
+      },
+      {
+        title: "Workshop benessere",
+        text: "Laboratori pratici su gestione dello stress, emozioni e mindfulness.",
+      },
+      {
+        title: "Sportello scuole",
+        text: "Supporto psicologico per studenti, insegnanti e famiglie.",
+      },
+    ],
+    timelineTitle: "Cronostoria",
+    timelineLead: "Le iniziative e i progetti che porto avanti, anno dopo anno.",
     // Ordine cronologico decrescente (dal più recente). Aggiungi voci in cima.
     timeline: [
       {
