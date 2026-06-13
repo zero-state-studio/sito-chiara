@@ -1,0 +1,109 @@
+@import "tailwindcss";
+
+/* ----------------------------------------------------------------------------
+   Design tokens — see DESIGN.md. Light only, warm/luminous, OKLCH.
+---------------------------------------------------------------------------- */
+@theme {
+  --color-canvas: oklch(0.985 0.01 70);
+  --color-surface: oklch(0.965 0.018 68);
+  --color-peach: oklch(0.92 0.05 62);
+  --color-peach-deep: oklch(0.86 0.08 58);
+  --color-brand: oklch(0.7 0.145 48);
+  --color-brand-deep: oklch(0.55 0.15 42);
+  --color-brand-glow: oklch(0.8 0.11 60);
+  --color-ink: oklch(0.3 0.03 50);
+  --color-ink-soft: oklch(0.44 0.032 50);
+  --color-line: oklch(0.7 0.03 55 / 0.35);
+
+  --font-display: var(--font-literata), Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-nunito), system-ui, sans-serif;
+  --font-script: var(--font-caveat), "Segoe Script", cursive;
+
+  --radius-blob: 42% 58% 63% 37% / 41% 44% 56% 59%;
+}
+
+/* ----------------------------------------------------------------------------
+   Base
+---------------------------------------------------------------------------- */
+:root {
+  color-scheme: light;
+  --ease-out-quart: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--color-canvas);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  /* faint paper grain — warmth via texture, not a flat cream wash */
+  background-image: radial-gradient(
+    oklch(0.55 0.15 42 / 0.035) 0.5px,
+    transparent 0.5px
+  );
+  background-size: 5px 5px;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  text-wrap: balance;
+  letter-spacing: -0.02em;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+::selection {
+  background: var(--color-brand-glow);
+  color: var(--color-ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-brand-deep);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ----------------------------------------------------------------------------
+   Scroll reveal — default-visible, enhanced by JS (never gates content).
+   Content with no [data-reveal] attribute renders fully visible (SSR / no-JS).
+---------------------------------------------------------------------------- */
+[data-reveal] {
+  transition:
+    opacity 0.6s var(--ease-out-quart),
+    transform 0.6s var(--ease-out-quart);
+  will-change: opacity, transform;
+}
+[data-reveal="pending"] {
+  opacity: 0;
+  transform: translateY(24px);
+}
+[data-reveal="in"] {
+  opacity: 1;
+  transform: none;
+}
+
+/* ----------------------------------------------------------------------------
+   Reduced motion — mandatory alternative (DESIGN.md / WCAG AA)
+---------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
