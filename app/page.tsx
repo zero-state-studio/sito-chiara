@@ -51,7 +51,7 @@ export default function Home() {
       <Divider from="peach" to="peach-deep" />
 
       {/* contact — flows into the footer */}
-      <Section id="contatti" tone="peach-deep" containerClassName="max-w-4xl">
+      <Section id="contatti" tone="peach-deep" className="pb-12!" containerClassName="max-w-4xl">
         <Blob className="right-[-4rem] top-[-2rem] h-64 w-64" tint="glow" opacity={0.5} />
         <Reveal>
           <ContactBox />

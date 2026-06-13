@@ -12,7 +12,7 @@ export default function CtaBand({ from = "canvas" }: { from?: Tone }) {
   return (
     <>
       <Divider from={from} to="peach-deep" />
-      <Section tone="peach-deep" containerClassName="max-w-2xl text-center">
+      <Section tone="peach-deep" className="pb-12!" containerClassName="max-w-2xl text-center">
         <Blob className="left-1/2 top-0 h-56 w-56 -translate-x-1/2" tint="glow" opacity={0.45} />
         <Reveal>
           <h2 className="text-[clamp(1.8rem,3.6vw,2.6rem)] font-semibold text-brand-deep">
