@@ -16,8 +16,8 @@ export const site = {
 
   landing: {
     kicker: "Psicologa",
-    hero: "Uno spazio sicuro per ritrovare il tuo equilibrio",
-    sub: "Ti accompagno con ascolto e calma lungo il tuo percorso di benessere. Un passo alla volta, senza fretta e senza giudizio.",
+    hero: "Uno spazio altro dove osservarsi e sviluppare consapevolezza",
+    sub: "Leggere e ri-significare i segni che ognuno di noi si porta addosso è ciò che mi guida nella professione. Mettere in dialogo le emozioni e i vissuti per comprendere come ci sentiamo, per poterci situare attivamente nelle relazioni che viviamo.",
     cta: "Scrivimi",
     ctaSecondary: "Scopri chi sono",
     teaserTitle: "Da dove vuoi cominciare?",
@@ -77,19 +77,23 @@ export const site = {
 
   progetti: {
     title: "Progetti",
-    lead: "Il benessere non si ferma alla porta dello studio.",
-    items: [
+    lead: "Una cronostoria delle iniziative e dei progetti che porto avanti, anno dopo anno.",
+    // Ordine cronologico decrescente (dal più recente). Aggiungi voci in cima.
+    timeline: [
       {
-        title: "Gruppi di ascolto",
-        text: "Incontri di gruppo dedicati al benessere emotivo e alla condivisione.",
+        year: "2022",
+        title: "Gruppo di ascolto CALM",
+        text: "Avvio del gruppo di ascolto CALM: uno spazio di confronto e sostegno emotivo condiviso.",
       },
       {
-        title: "Workshop benessere",
-        text: "Laboratori pratici su gestione dello stress, emozioni e mindfulness.",
+        year: "20XX",
+        title: "Titolo del progetto",
+        text: "Descrizione del progetto — sostituisci con i dettagli reali.",
       },
       {
-        title: "Sportello scuole",
-        text: "Supporto psicologico per studenti, insegnanti e famiglie.",
+        year: "20XX",
+        title: "Titolo del progetto",
+        text: "Descrizione del progetto — sostituisci con i dettagli reali.",
       },
     ],
   },
