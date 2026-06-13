@@ -18,7 +18,7 @@ export default function ChiSono() {
         <Blob className="right-[-5rem] top-[-1rem] h-72 w-72" tint="peach" opacity={0.5} />
         <div className="grid items-center gap-10 md:grid-cols-[1.25fr_1fr]">
           <Reveal>
-            <p className="font-script text-2xl text-brand">{site.chiSono.lead}</p>
+            <p className="font-script text-2xl text-brand-deep">{site.chiSono.lead}</p>
             <h1 className="mt-1 text-[clamp(2.2rem,5vw,3.5rem)] font-semibold text-ink">
               {site.chiSono.title}
             </h1>

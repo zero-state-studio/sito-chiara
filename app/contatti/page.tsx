@@ -18,7 +18,7 @@ export default function Contatti() {
         <Blob className="left-[-5rem] top-6 h-72 w-72" tint="glow" opacity={0.5} />
         <div className="grid gap-10 md:grid-cols-2 md:items-center">
           <Reveal>
-            <p className="font-script text-2xl text-brand">Scrivimi</p>
+            <p className="font-script text-2xl text-brand-deep">Scrivimi</p>
             <h1 className="mt-1 text-[clamp(2.2rem,5vw,3.5rem)] font-semibold text-ink">
               {site.contatti.title}
             </h1>
