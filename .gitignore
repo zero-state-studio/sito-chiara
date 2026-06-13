@@ -22,6 +22,7 @@
 
 # misc
 .DS_Store
+Thumbs.db
 *.pem
 
 # debug
@@ -30,8 +31,10 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# env files (can opt-in for committing if needed)
+# env files — ignore real env files, keep the examples
 .env*
+!.env.example
+!.env*.example
 
 # vercel
 .vercel
@@ -40,5 +43,17 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# Playwright MCP screenshots
+# editors / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# local agent tooling (not part of the app)
+.claude/
+.gemini/
+
+# scratch screenshots at repo root
+/*.png
+/*.jpeg
 .playwright-mcp/
