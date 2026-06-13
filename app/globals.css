@@ -27,6 +27,7 @@
 ---------------------------------------------------------------------------- */
 :root {
   color-scheme: light;
+  --ease-out-quart: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 html {
@@ -69,6 +70,25 @@ p {
   outline: 2px solid var(--color-brand-deep);
   outline-offset: 3px;
   border-radius: 4px;
+}
+
+/* ----------------------------------------------------------------------------
+   Scroll reveal — default-visible, enhanced by JS (never gates content).
+   Content with no [data-reveal] attribute renders fully visible (SSR / no-JS).
+---------------------------------------------------------------------------- */
+[data-reveal] {
+  transition:
+    opacity 0.6s var(--ease-out-quart),
+    transform 0.6s var(--ease-out-quart);
+  will-change: opacity, transform;
+}
+[data-reveal="pending"] {
+  opacity: 0;
+  transform: translateY(24px);
+}
+[data-reveal="in"] {
+  opacity: 1;
+  transform: none;
 }
 
 /* ----------------------------------------------------------------------------
