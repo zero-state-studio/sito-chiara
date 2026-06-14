@@ -3,7 +3,7 @@ import FlameLogo from "./FlameLogo";
 import { site } from "@/content/site";
 
 const b = site.business;
-const alboLabel = `Albo Psicologi E.R. n° ${b.alboNumber}`;
+const alboLabel = `Albo Psicologi Emilia Romagna n° ${b.alboNumber}`;
 
 export default function Footer() {
   return (
@@ -84,8 +84,9 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="mx-auto mt-10 max-w-7xl border-t border-ink/10 pt-4 text-xs text-ink/70">
-        © {site.name} · {site.role}
+      <div className="mx-auto mt-8 max-w-7xl border-t border-ink/10 pt-4 text-center text-xs text-ink/60">
+        © {new Date().getFullYear()} Dott.ssa {site.name} — {site.role} · Tutti i
+        diritti riservati
       </div>
     </footer>
   );
