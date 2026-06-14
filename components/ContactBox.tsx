@@ -1,6 +1,7 @@
 "use client";
 
 import { useId, useRef, useState } from "react";
+import { useRouter } from "next/navigation";
 import HCaptcha from "@hcaptcha/react-hcaptcha";
 import { site } from "@/content/site";
 
@@ -18,6 +19,7 @@ export default function ContactBox({ bare = false }: { bare?: boolean }) {
   const [status, setStatus] = useState<Status>("idle");
   const [token, setToken] = useState("");
   const captchaRef = useRef<HCaptcha>(null);
+  const router = useRouter();
   const uid = useId();
 
   function resetCaptcha() {
@@ -46,14 +48,15 @@ export default function ContactBox({ bare = false }: { bare?: boolean }) {
       });
       const json = await res.json();
       if (json.success) {
-        setStatus("success");
         form.reset();
+        resetCaptcha();
+        router.push("/thank-you");
       } else {
         setStatus("error");
+        resetCaptcha();
       }
     } catch {
       setStatus("error");
-    } finally {
       resetCaptcha();
     }
   }

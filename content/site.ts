@@ -136,4 +136,12 @@ export const site = {
     submit: "Invia messaggio",
     formNote: "I tuoi dati restano riservati e non saranno condivisi.",
   },
+
+  thankYou: {
+    title: "Grazie di cuore",
+    message:
+      "Il tuo messaggio è arrivato. Ti contatterò il prima possibile, con calma e attenzione. A presto.",
+    button: "Torna alla home",
+    photoAlt: "Chiara Lodovici, psicologa",
+  },
 } as const;
