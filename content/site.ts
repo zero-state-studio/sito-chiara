@@ -44,7 +44,7 @@ export const site = {
     title: "Chi sono",
     lead: "Sono Chiara Lodovici.",
     body: [
-      "Mi chiamo Chiara e sono una Psicologa e Specializzanda in Psicoterapia Sistemico-Dialogica. Leggere e ri-significare quei «segni che ognuno di noi si porta addosso» è ciò che mi guida nella professione.",
+      "Mi chiamo Chiara e sono una Psicologa iscritta all’albo (n° 11261) e Specializzanda in Psicoterapia Sistemico-Dialogica. Leggere e ri-significare quei «segni che ognuno di noi si porta addosso» è ciò che mi guida nella professione.",
       "Mi occupo di percorsi psicologici prevalentemente con adulti e adolescenti. Al di fuori dello studio, lavoro con adolescenti e giovani adulti in educativa di prossimità e in ambito penitenziario.",
       "Da diversi anni sono inoltre co-founder di Calm, team di psicologi che, in collaborazione con altri professionisti, sviluppa progetti in ambito socio-educativo.",
     ],
@@ -80,22 +80,29 @@ export const site = {
       {
         slug: "calm",
         title: "CALM",
+        logo: "/calm/LogoMark_Blue.png",
+        image: "",
+        imageAlt: "",
         summary:
           "Team di psicologi che, in collaborazione con altri professionisti, sviluppa progetti in ambito socio-educativo.",
         body: [
           "CALM è un team di psicologi di cui sono co-founder. Insieme ad altri professionisti, sviluppiamo progetti in ambito socio-educativo, portando l'ascolto e la cura psicologica dentro i contesti di vita delle persone.",
           "Lavoriamo con scuole, comunità ed enti del territorio per costruire spazi di confronto, prevenzione e crescita condivisa.",
-          "Descrizione in aggiornamento — aggiungi qui i dettagli e le iniziative del progetto.",
+          "Descrizione in aggiornamento...",
         ],
       },
       {
         slug: "oltre-le-parole",
         title: "Oltre le parole: Narrazioni condivise",
+        logo: "",
+        image: "/dixit/dixit.jpeg",
+        imageAlt:
+          "Sessione di gruppo «Oltre le parole»: carte Dixit e post-it su cui costruire narrazioni condivise.",
         summary:
           "Un percorso di narrazione condivisa per dare voce ai vissuti e costruire significati insieme.",
         body: [
           "«Oltre le parole: Narrazioni condivise» è un progetto dedicato al racconto di sé e all'ascolto reciproco, dove la narrazione diventa strumento di cura e di relazione.",
-          "Descrizione in aggiornamento — aggiungi qui gli obiettivi, le attività e i destinatari del progetto.",
+          "Descrizione in aggiornamento...",
         ],
       },
     ],

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import Section from "@/components/Section";
 import Reveal from "@/components/Reveal";
@@ -39,6 +40,17 @@ export default function Progetti() {
                   className="absolute -right-8 -top-8 h-28 w-28 rounded-blob opacity-80 transition-transform duration-500 group-hover:scale-125"
                   style={{ background: accents[i % accents.length] }}
                 />
+                {p.logo && (
+                  <span className="relative mb-4 grid h-14 w-14 place-items-center rounded-2xl bg-white shadow-sm ring-1 ring-brand/10">
+                    <Image
+                      src={p.logo}
+                      alt={`Logo ${p.title}`}
+                      width={36}
+                      height={40}
+                      className="h-10 w-auto object-contain"
+                    />
+                  </span>
+                )}
                 <h2 className="relative text-2xl font-semibold text-brand-deep sm:text-3xl">
                   {p.title}
                 </h2>

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Section from "@/components/Section";
@@ -47,6 +48,21 @@ export default async function ProjectDetail({ params }: Params) {
             {project.title}
           </h1>
         </Reveal>
+
+        {project.image && (
+          <Reveal delay={80} className="mt-6">
+            <figure className="overflow-hidden rounded-3xl ring-1 ring-brand/15 shadow-sm">
+              <Image
+                src={project.image}
+                alt={project.imageAlt}
+                width={1200}
+                height={1600}
+                sizes="(max-width: 768px) 90vw, 720px"
+                className="aspect-[16/10] w-full object-cover"
+              />
+            </figure>
+          </Reveal>
+        )}
 
         <div className="mt-6 space-y-4 text-lg leading-relaxed text-ink/85">
           {project.body.map((p, i) => (
