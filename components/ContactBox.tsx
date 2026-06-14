@@ -1,25 +1,43 @@
 "use client";
 
-import { useId, useState } from "react";
+import { useId, useRef, useState } from "react";
+import HCaptcha from "@hcaptcha/react-hcaptcha";
 import { site } from "@/content/site";
 
-type Status = "idle" | "sending" | "success" | "error";
+type Status = "idle" | "sending" | "success" | "error" | "captcha";
+
+// Web3Forms free shared hCaptcha sitekey (override with your own via env).
+const HCAPTCHA_SITEKEY =
+  process.env.NEXT_PUBLIC_HCAPTCHA_SITEKEY ??
+  "50b2fe65-b00b-4b9e-ad62-3ba471098be2";
 
 const fieldClass =
   "rounded-2xl border border-line bg-canvas/80 px-4 py-3 text-ink outline-none transition focus:border-brand placeholder:text-ink-soft/70";
 
 export default function ContactBox({ bare = false }: { bare?: boolean }) {
   const [status, setStatus] = useState<Status>("idle");
+  const [token, setToken] = useState("");
+  const captchaRef = useRef<HCaptcha>(null);
   const uid = useId();
+
+  function resetCaptcha() {
+    captchaRef.current?.resetCaptcha();
+    setToken("");
+  }
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    if (!token) {
+      setStatus("captcha");
+      return;
+    }
     setStatus("sending");
     const form = e.currentTarget;
     const data = new FormData(form);
     data.append("access_key", process.env.NEXT_PUBLIC_WEB3FORMS_KEY ?? "");
     data.append("subject", `Nuovo contatto dal sito — ${site.name}`);
     data.append("from_name", "Sito Chiara Lodovici");
+    data.append("h-captcha-response", token);
 
     try {
       const res = await fetch("https://api.web3forms.com/submit", {
@@ -35,6 +53,8 @@ export default function ContactBox({ bare = false }: { bare?: boolean }) {
       }
     } catch {
       setStatus("error");
+    } finally {
+      resetCaptcha();
     }
   }
 
@@ -107,6 +127,17 @@ export default function ContactBox({ bare = false }: { bare?: boolean }) {
             />
           </label>
 
+          <HCaptcha
+            ref={captchaRef}
+            sitekey={HCAPTCHA_SITEKEY}
+            onVerify={(t) => {
+              setToken(t);
+              setStatus((s) => (s === "captcha" ? "idle" : s));
+            }}
+            onExpire={() => setToken("")}
+            onError={() => setToken("")}
+          />
+
           <div className="mt-1 flex flex-wrap items-center gap-x-4 gap-y-2">
             <button
               type="submit"
@@ -117,6 +148,12 @@ export default function ContactBox({ bare = false }: { bare?: boolean }) {
             </button>
             <span className="text-xs text-ink-soft">{site.contatti.formNote}</span>
           </div>
+
+          {status === "captcha" && (
+            <p className="text-sm font-medium text-brand-deep" role="alert">
+              Completa la verifica anti-spam prima di inviare.
+            </p>
+          )}
 
           {status === "error" && (
             <p className="text-sm font-medium text-brand-deep" role="alert">
