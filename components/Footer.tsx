@@ -2,10 +2,14 @@ import Link from "next/link";
 import FlameLogo from "./FlameLogo";
 import { site } from "@/content/site";
 
+const b = site.business;
+const alboLabel = `Albo Psicologi E.R. n° ${b.alboNumber}`;
+
 export default function Footer() {
   return (
-    <footer className="relative mt-auto bg-peach-deep px-5 pb-7 pt-8 sm:px-8 lg:px-12">
-      <div className="mx-auto flex max-w-7xl flex-col gap-6 md:flex-row md:items-start md:justify-between">
+    <footer className="relative mt-auto bg-peach-deep px-5 pb-7 pt-10 sm:px-8 lg:px-12">
+      <div className="mx-auto grid max-w-7xl gap-8 sm:grid-cols-2 md:grid-cols-[1.5fr_1fr_1.2fr] md:gap-10">
+        {/* identity */}
         <div className="max-w-sm">
           <FlameLogo withWordmark size={26} />
           <p className="mt-3 text-sm text-ink/80">
@@ -13,48 +17,81 @@ export default function Footer() {
             te la senti — senza fretta.
           </p>
           <p className="mt-3 text-sm text-ink/70">
-            {site.business.studioName} · {site.business.addressLocality} (
-            {site.business.addressRegion})
+            {b.studioName} · {b.addressLocality} ({b.addressRegion})
           </p>
         </div>
 
-        <div className="md:text-right">
-          <nav
-            aria-label="Navigazione footer"
-            className="flex flex-wrap gap-x-5 gap-y-2 text-sm md:justify-end"
-          >
+        {/* navigation */}
+        <nav aria-label="Navigazione footer">
+          <p className="text-sm font-semibold text-ink">Naviga</p>
+          <ul className="mt-3 grid gap-2 text-sm">
             {site.nav.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
+              <li key={item.href}>
+                <Link
+                  href={item.href}
+                  className="text-ink/85 transition hover:text-brand-deep"
+                >
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+            <li>
+              <Link href="/privacy" className="text-ink/85 transition hover:text-brand-deep">
+                Privacy
+              </Link>
+            </li>
+            <li>
+              <Link href="/cookie-policy" className="text-ink/85 transition hover:text-brand-deep">
+                Cookie Policy
+              </Link>
+            </li>
+          </ul>
+        </nav>
+
+        {/* professional / contact */}
+        <div>
+          <p className="text-sm font-semibold text-ink">Contatti</p>
+          <ul className="mt-3 grid gap-2 text-sm">
+            <li>
+              <a
+                href={`mailto:${site.email}`}
+                className="break-all text-ink/85 transition hover:text-brand-deep"
+              >
+                {site.email}
+              </a>
+            </li>
+            <li>
+              <a
+                href={b.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-ink/85 transition hover:text-brand-deep"
               >
-                {item.label}
-              </Link>
-            ))}
-            <Link
-              href="/privacy"
-              className="text-ink/85 transition hover:text-brand-deep"
-            >
-              Privacy
-            </Link>
-            <Link
-              href="/cookie-policy"
-              className="text-ink/85 transition hover:text-brand-deep"
-            >
-              Cookie
-            </Link>
-          </nav>
-          <a
-            href={`mailto:${site.email}`}
-            className="mt-3 inline-block font-medium text-brand-deep transition hover:text-ink"
-          >
-            {site.email}
-          </a>
+                LinkedIn
+              </a>
+            </li>
+            <li>
+              {b.alboUrl ? (
+                <a
+                  href={b.alboUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-ink/85 transition hover:text-brand-deep"
+                >
+                  {alboLabel}
+                </a>
+              ) : (
+                <span className="text-ink/70">{alboLabel}</span>
+              )}
+            </li>
+            <li className="text-ink/70">
+              P.IVA {b.vat || "[da inserire]"}
+            </li>
+          </ul>
         </div>
       </div>
 
-      <div className="mx-auto mt-6 max-w-7xl border-t border-ink/10 pt-4 text-xs text-ink/70">
+      <div className="mx-auto mt-10 max-w-7xl border-t border-ink/10 pt-4 text-xs text-ink/70">
         © {site.name} · {site.role}
       </div>
     </footer>

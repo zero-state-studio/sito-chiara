@@ -127,6 +127,11 @@ export const site = {
     addressRegion: "MO",
     postalCode: "41012",
     sameAs: ["https://linkedin.com/in/chiara-lodovici-6ab69114b/"],
+    linkedin: "https://linkedin.com/in/chiara-lodovici-6ab69114b/",
+    alboNumber: "11261",
+    alboRegion: "Emilia-Romagna",
+    alboUrl: "https://www.ordinepsicologier.it/it/albo/11261a-chiara-lodovici",
+    vat: "", // P.IVA — [da inserire]
   },
 
   contatti: {
