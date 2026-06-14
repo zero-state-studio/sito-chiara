@@ -134,7 +134,67 @@ export const site = {
     intro:
       "Fare il primo passo è spesso la parte più difficile. Scrivimi pure: ti risponderò il prima possibile, con calma e riservatezza.",
     submit: "Invia messaggio",
-    formNote: "I tuoi dati restano riservati e non saranno condivisi.",
+    formNote:
+      "Per riservatezza, evita di inserire dati sensibili sulla salute nel messaggio.",
+  },
+
+  // BOZZA di informativa privacy — da far validare/personalizzare da un legale.
+  privacy: {
+    title: "Informativa privacy",
+    updated: "[data ultimo aggiornamento]",
+    intro:
+      "Questa informativa descrive come vengono trattati i dati personali raccolti tramite questo sito, ai sensi del Regolamento (UE) 2016/679 (GDPR).",
+    sections: [
+      {
+        heading: "Titolare del trattamento",
+        body: [
+          "Chiara Lodovici — Studio A Mente Aperta, Via Giovanni XXIII 110, 41012 Carpi (MO). Email: psico.chiaralodovici@gmail.com. [Inserire eventuale P.IVA / codice fiscale.]",
+        ],
+      },
+      {
+        heading: "Dati raccolti",
+        body: [
+          "Tramite il modulo contatti: nome, indirizzo email, numero di telefono (facoltativo) e il contenuto del messaggio. Durante la navigazione: dati tecnici aggregati e anonimi a scopo statistico (vedi “Statistiche del sito”).",
+        ],
+      },
+      {
+        heading: "Finalità e base giuridica",
+        body: [
+          "I dati del modulo sono trattati per rispondere alla tua richiesta e organizzare un eventuale primo contatto, sulla base del tuo consenso (art. 6.1.a GDPR).",
+          "Ti invitiamo a non inserire nel messaggio dati particolari relativi alla salute. Qualora tu scelga di comunicarli, il trattamento avviene sulla base del tuo consenso esplicito (art. 9.2.a GDPR).",
+        ],
+      },
+      {
+        heading: "Destinatari e trasferimenti",
+        body: [
+          "Il modulo è gestito tramite il servizio Web3Forms, che inoltra i messaggi a una casella di posta Google (Gmail). Questi fornitori agiscono come responsabili del trattamento. Alcuni dati possono essere trattati su server situati fuori dall’Unione Europea (es. Stati Uniti), con le garanzie adeguate previste dal GDPR.",
+        ],
+      },
+      {
+        heading: "Conservazione",
+        body: [
+          "I dati sono conservati per il tempo necessario a gestire la richiesta e gli eventuali contatti successivi, e poi cancellati.",
+        ],
+      },
+      {
+        heading: "Statistiche del sito",
+        body: [
+          "Il sito utilizza Umami e Vercel Speed Insights per raccogliere dati aggregati e anonimi sull’uso del sito, senza cookie di profilazione e senza identificarti.",
+        ],
+      },
+      {
+        heading: "I tuoi diritti",
+        body: [
+          "Puoi richiedere in qualsiasi momento accesso, rettifica, cancellazione, limitazione, opposizione e portabilità dei dati, e revocare il consenso, scrivendo a psico.chiaralodovici@gmail.com. Hai inoltre diritto di proporre reclamo al Garante per la protezione dei dati personali (www.garanteprivacy.it).",
+        ],
+      },
+      {
+        heading: "Nota",
+        body: [
+          "Questo testo è una bozza di partenza e deve essere personalizzato e validato da un professionista prima della pubblicazione definitiva.",
+        ],
+      },
+    ],
   },
 
   thankYou: {

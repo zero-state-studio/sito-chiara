@@ -32,6 +32,12 @@ export default function Footer() {
                 {item.label}
               </Link>
             ))}
+            <Link
+              href="/privacy"
+              className="text-ink/85 transition hover:text-brand-deep"
+            >
+              Privacy
+            </Link>
           </nav>
           <a
             href={`mailto:${site.email}`}

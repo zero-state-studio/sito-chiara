@@ -13,6 +13,7 @@ async function fillForm(user: ReturnType<typeof userEvent.setup>) {
   await user.type(screen.getByLabelText(/nome/i), "Mario");
   await user.type(screen.getByLabelText(/email/i), "mario@test.it");
   await user.type(screen.getByLabelText(/messaggio/i), "Ciao Chiara");
+  await user.click(screen.getByRole("checkbox")); // consenso privacy
 }
 
 describe("ContactBox", () => {

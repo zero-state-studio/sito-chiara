@@ -2,6 +2,7 @@
 
 import { useId, useState } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 import { site } from "@/content/site";
 
 type Status = "idle" | "sending" | "error";
@@ -116,6 +117,28 @@ export default function ContactBox({ bare = false }: { bare?: boolean }) {
             className={`${fieldClass} resize-y`}
           />
         </label>
+
+        <div className="flex items-start gap-2.5 text-sm text-ink/80">
+          <input
+            id={`${uid}-consent`}
+            name="consent"
+            type="checkbox"
+            required
+            className="mt-0.5 size-4 shrink-0 accent-brand"
+          />
+          <label htmlFor={`${uid}-consent`}>
+            Ho letto l’
+            <Link
+              href="/privacy"
+              target="_blank"
+              className="underline hover:text-brand-deep"
+              onClick={(e) => e.stopPropagation()}
+            >
+              informativa privacy
+            </Link>{" "}
+            e acconsento al trattamento dei miei dati per essere ricontattato/a.
+          </label>
+        </div>
 
         <div className="mt-1 flex flex-wrap items-center gap-x-4 gap-y-2">
           <button

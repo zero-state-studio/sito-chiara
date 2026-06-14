@@ -13,5 +13,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: "monthly" as const,
     priority: 0.5,
   }));
-  return [...pages, ...projects];
+  return [
+    ...pages,
+    ...projects,
+    {
+      url: `${SITE_URL}/privacy`,
+      changeFrequency: "yearly" as const,
+      priority: 0.3,
+    },
+  ];
 }
