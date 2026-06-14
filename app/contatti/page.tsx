@@ -18,7 +18,7 @@ export default function Contatti() {
   const mapsQuery = `${b.streetAddress}, ${b.postalCode} ${b.addressLocality} ${b.addressRegion}`;
   return (
     <>
-      <Section className="pt-8! sm:pt-12!" containerClassName="max-w-5xl">
+      <Section className="pt-8! sm:pt-12!">
         <Blob className="left-[-5rem] top-6 h-72 w-72" tint="glow" opacity={0.5} />
 
         <div className="grid gap-8 md:grid-cols-2 md:items-start">
