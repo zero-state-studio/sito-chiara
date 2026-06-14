@@ -16,7 +16,7 @@ export const site = {
 
   landing: {
     kicker: "Psicologa a Carpi (Modena)",
-    hero: "Uno spazio dove osservarsi e acquisire consapevolezza",
+    hero: "Un luogo dove osservarsi e acquisire consapevolezza",
     sub: "Mettere in dialogo le emozioni e i vissuti per comprendere come ci sentiamo per poterci situare attivamente nelle relazioni che viviamo.",
     cta: "Scrivimi",
     ctaSecondary: "Scopri chi sono",
@@ -118,7 +118,7 @@ export const site = {
   // Dati per SEO locale / dati strutturati. Riempi i campi vuoti per
   // potenziare il posizionamento locale (compaiono nello schema JSON-LD).
   business: {
-    studioName: "Studio A mente aperta",
+    studioName: "Studio A Mente Aperta",
     areaServed: "Modena",
     telephone: "+39 346 0874159",
     telephoneHref: "+393460874159", // per il link tel:
