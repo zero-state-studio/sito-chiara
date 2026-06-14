@@ -15,7 +15,7 @@ export const site = {
   ],
 
   landing: {
-    kicker: "Psicologa",
+    kicker: "Psicologa a Carpi (Modena)",
     hero: "Uno spazio dove osservarsi e acquisire consapevolezza",
     sub: "Mettere in dialogo le emozioni e i vissuti per comprendere come ci sentiamo per poterci situare attivamente nelle relazioni che viviamo.",
     cta: "Scrivimi",

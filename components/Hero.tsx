@@ -86,9 +86,13 @@ export default function Hero() {
           <FlameLogo size={58} />
         </motion.div>
 
+        <motion.p variants={item} className="mt-5 font-medium text-brand-deep">
+          {site.landing.kicker}
+        </motion.p>
+
         <motion.h1
           variants={item}
-          className="mt-6 text-[clamp(2.4rem,6vw,4.5rem)] font-semibold leading-[1.05] text-ink"
+          className="mt-2 text-[clamp(2.4rem,6vw,4.5rem)] font-semibold leading-[1.05] text-ink"
         >
           {site.landing.hero}
         </motion.h1>
