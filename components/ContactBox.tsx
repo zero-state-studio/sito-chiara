@@ -62,7 +62,7 @@ export default function ContactBox({ bare = false }: { bare?: boolean }) {
     <div className="relative overflow-hidden rounded-[2rem] bg-peach px-6 py-8 shadow-[0_18px_50px_-24px_oklch(0.55_0.15_42/0.5)] ring-1 ring-brand/15 sm:px-9 sm:py-10">
       {!bare && (
         <>
-          <h2 className="font-display text-3xl text-brand-deep sm:text-4xl">
+          <h2 className="font-display text-4xl text-brand-deep sm:text-5xl">
             {site.contatti.title}
           </h2>
           <p className="mt-2 max-w-prose text-ink/85">{site.contatti.intro}</p>

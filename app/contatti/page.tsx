@@ -18,10 +18,10 @@ export default function Contatti() {
   const mapsQuery = `${b.streetAddress}, ${b.postalCode} ${b.addressLocality} ${b.addressRegion}`;
   return (
     <>
-      <Section wide className="pt-8! sm:pt-12!">
+      <Section className="pt-8! sm:pt-12!" containerClassName="max-w-5xl">
         <Blob className="left-[-5rem] top-6 h-72 w-72" tint="glow" opacity={0.5} />
 
-        <div className="grid gap-10 md:grid-cols-2 md:items-start">
+        <div className="grid gap-8 md:grid-cols-2 md:items-start">
           {/* info */}
           <Reveal>
             <h1 className="font-script text-[clamp(2.75rem,6vw,4rem)] leading-[0.9] text-brand-deep">
@@ -64,14 +64,14 @@ export default function Contatti() {
             </address>
 
             {/* studio map — square, under the contact details */}
-            <div className="mt-7 max-w-sm">
-              <div className="aspect-square overflow-hidden rounded-3xl ring-1 ring-brand/15 shadow-sm">
+            <div className="mt-7">
+              <div className="relative aspect-square overflow-hidden rounded-3xl ring-1 ring-brand/15 shadow-sm">
                 <iframe
                   title={`Mappa dello studio a ${b.addressLocality} (${b.addressRegion})`}
                   src={`https://www.google.com/maps?q=${encodeURIComponent(mapsQuery)}&z=16&output=embed`}
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  className="h-full w-full"
+                  className="absolute inset-0 h-full w-full"
                   style={{ border: 0 }}
                 />
               </div>
