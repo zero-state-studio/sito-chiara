@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Literata, Nunito, Caveat } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -74,6 +75,11 @@ export default function RootLayout({
         <Footer />
         <Analytics />
         <SpeedInsights />
+        <Script
+          src="https://cloud.umami.is/script.js"
+          data-website-id="0ad99cb2-0917-48bd-93a3-d9628b2b2c67"
+          strategy="afterInteractive"
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
