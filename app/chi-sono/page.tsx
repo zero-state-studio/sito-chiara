@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Section from "@/components/Section";
+import Divider from "@/components/Divider";
 import Reveal from "@/components/Reveal";
 import Blob from "@/components/Blob";
 import CtaBand from "@/components/CtaBand";
@@ -58,6 +59,8 @@ export default function ChiSono() {
           </Reveal>
         </div>
       </Section>
+
+      <Divider from="canvas" to="peach" />
 
       {/* values */}
       <Section tone="peach" containerClassName="max-w-4xl text-center">
