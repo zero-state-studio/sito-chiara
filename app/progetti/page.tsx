@@ -40,20 +40,22 @@ export default function Progetti() {
                   className="absolute -right-8 -top-8 h-28 w-28 rounded-blob opacity-80 transition-transform duration-500 group-hover:scale-125"
                   style={{ background: accents[i % accents.length] }}
                 />
-                {p.logo && (
-                  <span className="relative mb-4 grid h-14 w-14 place-items-center rounded-2xl bg-white shadow-sm ring-1 ring-brand/10">
+                {p.logo ? (
+                  <>
                     <Image
                       src={p.logo}
-                      alt={`Logo ${p.title}`}
-                      width={36}
-                      height={40}
-                      className="h-10 w-auto object-contain"
+                      alt=""
+                      width={200}
+                      height={64}
+                      className="relative h-12 w-auto object-contain"
                     />
-                  </span>
+                    <h2 className="sr-only">{p.title}</h2>
+                  </>
+                ) : (
+                  <h2 className="relative text-2xl font-semibold text-brand-deep sm:text-3xl">
+                    {p.title}
+                  </h2>
                 )}
-                <h2 className="relative text-2xl font-semibold text-brand-deep sm:text-3xl">
-                  {p.title}
-                </h2>
                 <p className="relative mt-3 flex-1 text-ink/80">{p.summary}</p>
                 <span className="relative mt-5 inline-flex items-center gap-2 font-medium text-brand-deep">
                   Scopri il progetto

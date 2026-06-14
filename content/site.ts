@@ -80,7 +80,7 @@ export const site = {
       {
         slug: "calm",
         title: "CALM",
-        logo: "/calm/LogoMark_Blue.png",
+        logo: "/calm/Logo_Horizontal_Blue.png",
         image: "",
         imageAlt: "",
         summary:
