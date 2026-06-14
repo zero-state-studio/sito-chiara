@@ -4,6 +4,7 @@ import { Analytics } from "@vercel/analytics/next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { site } from "@/content/site";
+import { SITE_URL, siteJsonLd } from "@/lib/seo";
 import "./globals.css";
 
 const literata = Literata({
@@ -26,17 +27,16 @@ const caveat = Caveat({
 });
 
 const description =
-  "Chiara Lodovici, psicologa. Uno spazio sicuro e accogliente per ritrovare calma, equilibrio e benessere. Terapia individuale, di coppia e gestione dell'ansia.";
+  "Chiara Lodovici, psicologa: percorsi individuali, di coppia e familiari, formazioni e laboratori. Uno spazio per osservarsi e acquisire consapevolezza.";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL ?? "https://psicochiaralodovici.it",
-  ),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: `${site.name} — ${site.role}`,
     template: `%s — ${site.name}`,
   },
   description,
+  alternates: { canonical: "/" },
   openGraph: {
     title: `${site.name} — ${site.role}`,
     description,
@@ -70,6 +70,12 @@ export default function RootLayout({
         </main>
         <Footer />
         <Analytics />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(siteJsonLd()).replace(/</g, "\\u003c"),
+          }}
+        />
       </body>
     </html>
   );

@@ -8,7 +8,9 @@ import { site } from "@/content/site";
 
 export const metadata: Metadata = {
   title: site.progetti.title,
-  description: site.progetti.lead,
+  description:
+    "I progetti della psicologa Chiara Lodovici: CALM e «Oltre le parole», iniziative in ambito socio-educativo oltre lo studio.",
+  alternates: { canonical: "/progetti" },
 };
 
 const accents = ["var(--color-brand-glow)", "var(--color-peach-deep)"];

@@ -108,6 +108,17 @@ export const site = {
     button: "Scrivimi",
   },
 
+  // Dati per SEO locale / dati strutturati. Riempi i campi vuoti per
+  // potenziare il posizionamento locale (compaiono nello schema JSON-LD).
+  business: {
+    areaServed: "", // es. "Milano" o "Torino e online" — zona in cui riceve
+    telephone: "", // es. "+39 333 1234567" (opzionale)
+    streetAddress: "", // indirizzo studio (opzionale)
+    addressLocality: "", // città
+    postalCode: "",
+    sameAs: [] as string[], // URL profili social: Instagram, LinkedIn, ...
+  },
+
   contatti: {
     title: "Parliamone",
     intro:

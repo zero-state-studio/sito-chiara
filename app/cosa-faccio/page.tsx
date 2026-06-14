@@ -7,7 +7,9 @@ import { site } from "@/content/site";
 
 export const metadata: Metadata = {
   title: site.cosaFaccio.title,
-  description: site.cosaFaccio.lead,
+  description:
+    "I percorsi della psicologa Chiara Lodovici: individuali, di coppia e familiari, formazioni esperienziali e laboratori.",
+  alternates: { canonical: "/cosa-faccio" },
 };
 
 const tints = ["glow", "peach", "brand", "peach"] as const;

@@ -7,8 +7,10 @@ import ContactBox from "@/components/ContactBox";
 import { site } from "@/content/site";
 
 export const metadata: Metadata = {
-  title: site.contatti.title,
-  description: site.contatti.intro,
+  title: "Contatti",
+  description:
+    "Contatta la psicologa Chiara Lodovici: scrivi per un primo colloquio. Risposta riservata e senza impegno.",
+  alternates: { canonical: "/contatti" },
 };
 
 export default function Contatti() {

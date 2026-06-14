@@ -8,7 +8,9 @@ import { site } from "@/content/site";
 
 export const metadata: Metadata = {
   title: site.chiSono.title,
-  description: site.chiSono.body[0],
+  description:
+    "Chiara Lodovici, psicologa e specializzanda in Psicoterapia Sistemico-Dialogica. Percorsi con adulti e adolescenti; co-founder di CALM.",
+  alternates: { canonical: "/chi-sono" },
 };
 
 export default function ChiSono() {
