@@ -40,10 +40,11 @@ const serviceIcons = [
     <path d="M12 13C12 9.7 9.5 7.5 5.5 7.5 5.5 10.8 8 13 12 13Z" />
     <path d="M12 12c0-3 2.3-5.2 6-5.2 0 3-2.3 5.2-6 5.2Z" />
   </svg>,
-  // laboratori — scintille / creatività
-  <svg key="spark" {...iconProps}>
-    <path d="M11 3.5l1.7 4.6 4.6 1.7-4.6 1.7L11 16.1l-1.7-4.6L4.7 9.8l4.6-1.7z" />
-    <path d="M18.5 15l.6 1.8 1.8.6-1.8.6-.6 1.8-.6-1.8-1.8-.6 1.8-.6z" />
+  // laboratori — mattoncino LEGO stilizzato
+  <svg key="lego" {...iconProps}>
+    <rect x="4.5" y="8" width="15" height="10" rx="1.8" />
+    <path d="M8 8V6.6c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5V8" />
+    <path d="M13 8V6.6c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5V8" />
   </svg>,
 ];
 
