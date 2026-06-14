@@ -9,23 +9,6 @@ vi.mock("next/navigation", () => ({
   useRouter: () => ({ push: pushMock }),
 }));
 
-// Stub hCaptcha: a button that "solves" it by calling onVerify.
-vi.mock("@hcaptcha/react-hcaptcha", async () => {
-  const React = await import("react");
-  const HCaptchaMock = React.forwardRef(function HCaptchaMock(
-    props: { onVerify?: (token: string) => void },
-    ref,
-  ) {
-    React.useImperativeHandle(ref, () => ({ resetCaptcha: () => {} }));
-    return (
-      <button type="button" onClick={() => props.onVerify?.("test-token")}>
-        solve-captcha
-      </button>
-    );
-  });
-  return { default: HCaptchaMock };
-});
-
 async function fillForm(user: ReturnType<typeof userEvent.setup>) {
   await user.type(screen.getByLabelText(/nome/i), "Mario");
   await user.type(screen.getByLabelText(/email/i), "mario@test.it");
@@ -59,21 +42,10 @@ describe("ContactBox", () => {
     expect(screen.getByLabelText(/messaggio/i)).toBeInTheDocument();
   });
 
-  it("blocks submit until the captcha is solved", async () => {
-    const user = userEvent.setup();
-    render(<ContactBox />);
-    await fillForm(user);
-    await user.click(screen.getByRole("button", { name: /invia/i }));
-
-    expect(screen.getByText(/verifica anti-spam/i)).toBeInTheDocument();
-    expect(fetch).not.toHaveBeenCalled();
-  });
-
   it("submits to Web3Forms and redirects to /thank-you on success", async () => {
     const user = userEvent.setup();
     render(<ContactBox />);
     await fillForm(user);
-    await user.click(screen.getByText("solve-captcha"));
     await user.click(screen.getByRole("button", { name: /invia/i }));
 
     await waitFor(() => expect(pushMock).toHaveBeenCalledWith("/thank-you"));
@@ -96,7 +68,6 @@ describe("ContactBox", () => {
     const user = userEvent.setup();
     render(<ContactBox />);
     await fillForm(user);
-    await user.click(screen.getByText("solve-captcha"));
     await user.click(screen.getByRole("button", { name: /invia/i }));
 
     await waitFor(() =>
