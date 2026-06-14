@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import { Literata, Nunito, Caveat } from "next/font/google";
-import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -73,7 +72,6 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
-        <Analytics />
         <SpeedInsights />
         <Script
           src="https://cloud.umami.is/script.js"
