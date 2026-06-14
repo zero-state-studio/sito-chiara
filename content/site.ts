@@ -135,7 +135,7 @@ export const site = {
       "Fare il primo passo è spesso la parte più difficile. Scrivimi pure: ti risponderò il prima possibile, con calma e riservatezza.",
     submit: "Invia messaggio",
     formNote:
-      "Per riservatezza, evita di inserire dati sensibili sulla salute nel messaggio.",
+      "Questo è un modulo di primo contatto: non inserire dati su salute, diagnosi o terapie (art. 9 GDPR). Per un minore, scrivi come genitore o tutore.",
   },
 
   // BOZZA di informativa privacy — da far validare/personalizzare da un legale.
@@ -148,44 +148,116 @@ export const site = {
       {
         heading: "Titolare del trattamento",
         body: [
-          "Chiara Lodovici — Studio A Mente Aperta, Via Giovanni XXIII 110, 41012 Carpi (MO). Email: psico.chiaralodovici@gmail.com. [Inserire eventuale P.IVA / codice fiscale.]",
+          "Chiara Lodovici, psicologa (iscritta all’Albo degli Psicologi dell’Emilia-Romagna n° 11261) — Studio A Mente Aperta, Via Giovanni XXIII 110, 41012 Carpi (MO). Email: psico.chiaralodovici@gmail.com. Tel: +39 346 0874159. [Inserire eventuale P.IVA / codice fiscale.]",
         ],
       },
       {
         heading: "Dati raccolti",
         body: [
-          "Tramite il modulo contatti: nome, indirizzo email, numero di telefono (facoltativo) e il contenuto del messaggio. Durante la navigazione: dati tecnici aggregati e anonimi a scopo statistico (vedi “Statistiche del sito”).",
+          "Dati di navigazione: indirizzo IP, data e ora, pagine visitate, tipo di browser/dispositivo e log tecnici, raccolti dall’infrastruttura del sito per il suo funzionamento e la sua sicurezza.",
+          "Dati del modulo contatti: nome, indirizzo email, numero di telefono (facoltativo) e contenuto del messaggio. Il modulo non è pensato per raccogliere dati relativi alla salute.",
         ],
       },
       {
-        heading: "Finalità e base giuridica",
+        heading: "Finalità del trattamento",
         body: [
-          "I dati del modulo sono trattati per rispondere alla tua richiesta e organizzare un eventuale primo contatto, sulla base del tuo consenso (art. 6.1.a GDPR).",
-          "Ti invitiamo a non inserire nel messaggio dati particolari relativi alla salute. Qualora tu scelga di comunicarli, il trattamento avviene sulla base del tuo consenso esplicito (art. 9.2.a GDPR).",
+          "Gestire le richieste di primo contatto e rispondere; organizzare un eventuale appuntamento; garantire la sicurezza e il corretto funzionamento del sito; mostrare la mappa dello studio tramite Google Maps.",
         ],
       },
       {
-        heading: "Destinatari e trasferimenti",
+        heading: "Base giuridica",
         body: [
-          "Il modulo è gestito tramite il servizio Web3Forms, che inoltra i messaggi a una casella di posta Google (Gmail). Questi fornitori agiscono come responsabili del trattamento. Alcuni dati possono essere trattati su server situati fuori dall’Unione Europea (es. Stati Uniti), con le garanzie adeguate previste dal GDPR.",
+          "Art. 6.1.b GDPR (misure precontrattuali su tua richiesta) per la gestione del modulo; art. 6.1.f (legittimo interesse) per sicurezza e funzionamento del sito; art. 6.1.a (consenso) per l’invio del modulo e per i contenuti di terze parti (mappa); art. 9.2.a (consenso esplicito) per eventuali dati relativi alla salute che decidessi di comunicare.",
         ],
       },
       {
-        heading: "Conservazione",
+        heading: "Destinatari e responsabili del trattamento",
         body: [
-          "I dati sono conservati per il tempo necessario a gestire la richiesta e gli eventuali contatti successivi, e poi cancellati.",
+          "Vercel Inc. (USA) — hosting e distribuzione del sito; Web3Forms — invio del modulo contatti; Google LLC (USA) — ricezione delle email (Gmail) e mappe (Google Maps). Questi fornitori agiscono come responsabili del trattamento.",
+          "Eventuali trasferimenti verso Paesi extra-UE (es. Stati Uniti) avvengono con le garanzie previste dal Capo V del GDPR (EU-US Data Privacy Framework e/o Clausole Contrattuali Standard).",
         ],
       },
       {
-        heading: "Statistiche del sito",
+        heading: "Conservazione dei dati",
         body: [
-          "Il sito utilizza Umami e Vercel Speed Insights per raccogliere dati aggregati e anonimi sull’uso del sito, senza cookie di profilazione e senza identificarti.",
+          "Richieste di contatto non concretizzate: massimo 6 mesi. In caso di rapporto professionale: per la durata del rapporto e per il periodo previsto dagli obblighi deontologici e di legge. Dati fiscali: 10 anni (art. 2220 c.c.). Log tecnici: per il tempo necessario a sicurezza e funzionamento.",
+        ],
+      },
+      {
+        heading: "Dati relativi alla salute",
+        body: [
+          "Il modulo non è destinato alla raccolta di dati particolari (art. 9 GDPR). Ti invitiamo a non inserire informazioni su stato di salute, diagnosi o terapie nel primo contatto. Se decidi comunque di comunicarli, saranno trattati solo nella misura necessaria a gestire la tua richiesta.",
+        ],
+      },
+      {
+        heading: "Minori",
+        body: [
+          "Se la richiesta riguarda un minore, il primo contatto deve essere effettuato da un genitore o da chi ne esercita la responsabilità genitoriale.",
         ],
       },
       {
         heading: "I tuoi diritti",
         body: [
-          "Puoi richiedere in qualsiasi momento accesso, rettifica, cancellazione, limitazione, opposizione e portabilità dei dati, e revocare il consenso, scrivendo a psico.chiaralodovici@gmail.com. Hai inoltre diritto di proporre reclamo al Garante per la protezione dei dati personali (www.garanteprivacy.it).",
+          "Puoi esercitare in qualsiasi momento i diritti di accesso, rettifica, cancellazione, limitazione, opposizione e portabilità, e revocare il consenso (artt. 15-22 GDPR), scrivendo a psico.chiaralodovici@gmail.com. Hai inoltre diritto di proporre reclamo al Garante per la protezione dei dati personali (www.garanteprivacy.it).",
+        ],
+      },
+      {
+        heading: "Cookie",
+        body: [
+          "Il sito utilizza cookie e tecnologie simili come descritto nella Cookie Policy, raggiungibile dal footer.",
+        ],
+      },
+      {
+        heading: "Nota",
+        body: [
+          "Questo testo è una bozza di partenza e deve essere personalizzato e validato da un professionista prima della pubblicazione definitiva.",
+        ],
+      },
+    ],
+  },
+
+  // BOZZA di cookie policy — da far validare/personalizzare da un legale.
+  cookie: {
+    title: "Cookie Policy",
+    updated: "[data ultimo aggiornamento]",
+    intro:
+      "Questa cookie policy spiega come e quali cookie (e tecnologie simili) sono utilizzati su questo sito.",
+    sections: [
+      {
+        heading: "Cosa sono i cookie",
+        body: [
+          "I cookie sono piccoli file di testo che i siti salvano sul tuo dispositivo durante la navigazione. Tecnologie simili (come il localStorage del browser) memorizzano dati in locale senza trasmetterli a server esterni.",
+        ],
+      },
+      {
+        heading: "Cookie utilizzati da questo sito",
+        body: [
+          "Il sito non utilizza cookie di profilazione o di marketing propri. Le statistiche di utilizzo sono raccolte con Umami e Vercel Speed Insights, che misurano dati aggregati e anonimi senza cookie e senza identificarti. L’infrastruttura di hosting (Vercel) può utilizzare cookie tecnici necessari al funzionamento e alla sicurezza.",
+        ],
+      },
+      {
+        heading: "Cookie di terze parti",
+        body: [
+          "Google Maps: la pagina Contatti incorpora una mappa di Google. Al caricamento, Google può installare cookie (es. NID, CONSENT, SOCS, 1P_JAR, AEC) per preferenze, statistiche e prevenzione degli abusi, con durata variabile da 1 mese a 2 anni.",
+          "Web3Forms e Google: all’invio del modulo i dati vengono trasmessi a Web3Forms e a Google (Gmail); possono essere utilizzati cookie tecnici necessari al funzionamento del servizio.",
+        ],
+      },
+      {
+        heading: "Trasferimenti verso Paesi terzi",
+        body: [
+          "Google e Vercel hanno sede negli Stati Uniti; i trasferimenti di dati avvengono con le garanzie previste dal Capo V del GDPR (EU-US Data Privacy Framework e/o Clausole Contrattuali Standard).",
+        ],
+      },
+      {
+        heading: "Come gestire o disabilitare i cookie",
+        body: [
+          "Puoi gestire o disabilitare i cookie dalle impostazioni del tuo browser (Chrome, Firefox, Safari, Edge). La disabilitazione dei cookie di terze parti può impedire la corretta visualizzazione della mappa nella pagina Contatti.",
+        ],
+      },
+      {
+        heading: "Aggiornamenti",
+        body: [
+          "Questa cookie policy può essere aggiornata nel tempo; ti invitiamo a consultarla periodicamente.",
         ],
       },
       {

@@ -38,6 +38,12 @@ export default function Footer() {
             >
               Privacy
             </Link>
+            <Link
+              href="/cookie-policy"
+              className="text-ink/85 transition hover:text-brand-deep"
+            >
+              Cookie
+            </Link>
           </nav>
           <a
             href={`mailto:${site.email}`}

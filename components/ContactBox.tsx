@@ -127,16 +127,18 @@ export default function ContactBox({ bare = false }: { bare?: boolean }) {
             className="mt-0.5 size-4 shrink-0 accent-brand"
           />
           <label htmlFor={`${uid}-consent`}>
-            Ho letto l’
+            Ho letto e accetto la{" "}
             <Link
               href="/privacy"
               target="_blank"
               className="underline hover:text-brand-deep"
               onClick={(e) => e.stopPropagation()}
             >
-              informativa privacy
+              Privacy Policy
             </Link>{" "}
-            e acconsento al trattamento dei miei dati per essere ricontattato/a.
+            e acconsento al trattamento dei miei dati personali, inclusa la loro
+            trasmissione a Web3Forms e Google (USA), ai sensi del Regolamento UE
+            2016/679.
           </label>
         </div>
 
