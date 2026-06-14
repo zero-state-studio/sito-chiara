@@ -77,25 +77,25 @@ export default function Hero() {
           initial={{ opacity: 0, scale: reduce ? 1 : 0.94, y: reduce ? 0 : 16 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 0.8, ease }}
-          className="order-1 flex flex-col items-center gap-6"
+          className="order-1 flex flex-col items-center gap-7 md:items-start"
         >
-          <figure className="relative w-full max-w-[18rem]">
+          <figure className="relative w-full max-w-sm">
             <span
               aria-hidden="true"
-              className="absolute -inset-3 -z-10 rounded-[2.4rem] bg-peach-deep/45 blur-2xl"
+              className="absolute -inset-4 -z-10 rounded-blob bg-peach-deep/45 blur-2xl"
             />
-            <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] ring-1 ring-brand/25 shadow-[0_28px_60px_-30px_oklch(0.55_0.15_42/0.6)]">
+            <div className="relative aspect-[4/5] overflow-hidden rounded-blob ring-1 ring-brand/25 shadow-[0_28px_60px_-30px_oklch(0.55_0.15_42/0.6)]">
               <Image
                 src="/chiara.jpg"
                 alt={`${site.name}, ${site.role}`}
                 fill
-                sizes="(max-width: 768px) 80vw, 320px"
-                className="object-cover object-[center_22%]"
+                sizes="(max-width: 768px) 85vw, 384px"
+                className="object-cover object-[center_25%]"
                 priority
               />
             </div>
           </figure>
-          <FlameLogo withWordmark size={42} />
+          <FlameLogo withWordmark size={54} />
         </motion.div>
 
         {/* right — message */}
