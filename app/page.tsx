@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Hero from "@/components/Hero";
 import Section from "@/components/Section";
@@ -6,6 +7,13 @@ import Reveal from "@/components/Reveal";
 import Blob from "@/components/Blob";
 import ContactBox from "@/components/ContactBox";
 import { site } from "@/content/site";
+
+export const metadata: Metadata = {
+  title: "Chiara Lodovici — Psicologa a Carpi (Modena)",
+  description:
+    "Psicologa a Carpi (Modena): percorsi individuali, di coppia e familiari, formazioni e laboratori. Uno spazio per osservarsi e acquisire consapevolezza.",
+  alternates: { canonical: "/" },
+};
 
 export default function Home() {
   return (

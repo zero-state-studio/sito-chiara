@@ -22,6 +22,7 @@ export function siteJsonLd() {
           "@type": "PostalAddress",
           ...(b.streetAddress ? { streetAddress: b.streetAddress } : {}),
           ...(b.addressLocality ? { addressLocality: b.addressLocality } : {}),
+          ...(b.addressRegion ? { addressRegion: b.addressRegion } : {}),
           ...(b.postalCode ? { postalCode: b.postalCode } : {}),
           addressCountry: "IT",
         }

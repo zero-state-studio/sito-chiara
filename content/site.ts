@@ -111,12 +111,15 @@ export const site = {
   // Dati per SEO locale / dati strutturati. Riempi i campi vuoti per
   // potenziare il posizionamento locale (compaiono nello schema JSON-LD).
   business: {
-    areaServed: "", // es. "Milano" o "Torino e online" — zona in cui riceve
-    telephone: "", // es. "+39 333 1234567" (opzionale)
-    streetAddress: "", // indirizzo studio (opzionale)
-    addressLocality: "", // città
-    postalCode: "",
-    sameAs: [] as string[], // URL profili social: Instagram, LinkedIn, ...
+    studioName: "Studio A mente aperta",
+    areaServed: "Modena",
+    telephone: "+39 346 0874159",
+    telephoneHref: "+393460874159", // per il link tel:
+    streetAddress: "Via Giovanni XXIII, 110",
+    addressLocality: "Carpi",
+    addressRegion: "MO",
+    postalCode: "41012",
+    sameAs: ["https://linkedin.com/in/chiara-lodovici-6ab69114b/"],
   },
 
   contatti: {

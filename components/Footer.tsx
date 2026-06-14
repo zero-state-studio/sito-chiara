@@ -12,6 +12,10 @@ export default function Footer() {
             Uno spazio sicuro per ritrovare calma ed equilibrio. Scrivimi quando
             te la senti — senza fretta.
           </p>
+          <p className="mt-3 text-sm text-ink/70">
+            {site.business.studioName} · {site.business.addressLocality} (
+            {site.business.addressRegion})
+          </p>
         </div>
 
         <div className="md:text-right">
