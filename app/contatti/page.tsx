@@ -14,6 +14,8 @@ export const metadata: Metadata = {
 };
 
 export default function Contatti() {
+  const b = site.business;
+  const mapsQuery = `${b.streetAddress}, ${b.postalCode} ${b.addressLocality} ${b.addressRegion}`;
   return (
     <>
       <Section>
@@ -62,6 +64,27 @@ export default function Contatti() {
                 {site.email}
               </a>
             </address>
+
+            {/* mini map of the studio */}
+            <div className="mt-6 overflow-hidden rounded-2xl ring-1 ring-brand/15 shadow-sm">
+              <iframe
+                title={`Mappa dello studio a ${b.addressLocality} (${b.addressRegion})`}
+                src={`https://www.google.com/maps?q=${encodeURIComponent(mapsQuery)}&z=16&output=embed`}
+                width="100%"
+                height={220}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                style={{ border: 0, display: "block" }}
+              />
+            </div>
+            <a
+              href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(mapsQuery)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-2 inline-block text-sm text-brand-deep underline transition hover:text-ink"
+            >
+              Apri in Google Maps
+            </a>
           </Reveal>
 
           <Reveal delay={120}>
