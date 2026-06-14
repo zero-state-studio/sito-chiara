@@ -18,9 +18,11 @@ export default function Contatti() {
   const mapsQuery = `${b.streetAddress}, ${b.postalCode} ${b.addressLocality} ${b.addressRegion}`;
   return (
     <>
-      <Section className="pt-8! sm:pt-12!">
+      <Section wide className="pt-8! sm:pt-12!">
         <Blob className="left-[-5rem] top-6 h-72 w-72" tint="glow" opacity={0.5} />
-        <div className="grid gap-10 md:grid-cols-2 md:items-center">
+
+        <div className="grid gap-10 md:grid-cols-2 md:items-start">
+          {/* info */}
           <Reveal>
             <p className="font-script text-2xl text-brand-deep">Scrivimi</p>
             <h1 className="mt-1 text-[clamp(2.2rem,5vw,3.5rem)] font-semibold text-ink">
@@ -64,33 +66,36 @@ export default function Contatti() {
                 {site.email}
               </a>
             </address>
-
-            {/* mini map of the studio */}
-            <div className="mt-6 overflow-hidden rounded-2xl ring-1 ring-brand/15 shadow-sm">
-              <iframe
-                title={`Mappa dello studio a ${b.addressLocality} (${b.addressRegion})`}
-                src={`https://www.google.com/maps?q=${encodeURIComponent(mapsQuery)}&z=16&output=embed`}
-                width="100%"
-                height={194}
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                style={{ border: 0, display: "block" }}
-              />
-            </div>
-            <a
-              href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(mapsQuery)}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-2 inline-block text-sm text-brand-deep underline transition hover:text-ink"
-            >
-              Apri in Google Maps
-            </a>
           </Reveal>
 
+          {/* form (no duplicate heading — the page already says "Parliamone") */}
           <Reveal delay={120}>
-            <ContactBox />
+            <ContactBox bare />
           </Reveal>
         </div>
+
+        {/* studio map — full width strip */}
+        <Reveal delay={80} className="mt-10">
+          <div className="overflow-hidden rounded-3xl ring-1 ring-brand/15 shadow-sm">
+            <iframe
+              title={`Mappa dello studio a ${b.addressLocality} (${b.addressRegion})`}
+              src={`https://www.google.com/maps?q=${encodeURIComponent(mapsQuery)}&z=16&output=embed`}
+              width="100%"
+              height={240}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              style={{ border: 0, display: "block" }}
+            />
+          </div>
+          <a
+            href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(mapsQuery)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-2 inline-block text-sm text-brand-deep underline transition hover:text-ink"
+          >
+            Apri in Google Maps
+          </a>
+        </Reveal>
       </Section>
 
       {/* melt into the footer */}

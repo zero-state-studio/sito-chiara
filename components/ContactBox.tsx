@@ -8,7 +8,7 @@ type Status = "idle" | "sending" | "success" | "error";
 const fieldClass =
   "rounded-2xl border border-line bg-canvas/80 px-4 py-3 text-ink outline-none transition focus:border-brand placeholder:text-ink-soft/70";
 
-export default function ContactBox() {
+export default function ContactBox({ bare = false }: { bare?: boolean }) {
   const [status, setStatus] = useState<Status>("idle");
   const uid = useId();
 
@@ -40,10 +40,14 @@ export default function ContactBox() {
 
   return (
     <div className="relative overflow-hidden rounded-[2rem] bg-peach px-6 py-8 shadow-[0_18px_50px_-24px_oklch(0.55_0.15_42/0.5)] ring-1 ring-brand/15 sm:px-9 sm:py-10">
-      <h2 className="font-display text-3xl text-brand-deep sm:text-4xl">
-        {site.contatti.title}
-      </h2>
-      <p className="mt-2 max-w-prose text-ink/85">{site.contatti.intro}</p>
+      {!bare && (
+        <>
+          <h2 className="font-display text-3xl text-brand-deep sm:text-4xl">
+            {site.contatti.title}
+          </h2>
+          <p className="mt-2 max-w-prose text-ink/85">{site.contatti.intro}</p>
+        </>
+      )}
 
       {status === "success" ? (
         <div className="mt-6 rounded-2xl bg-canvas/80 px-5 py-6" role="status">
@@ -53,7 +57,7 @@ export default function ContactBox() {
           </p>
         </div>
       ) : (
-        <form onSubmit={onSubmit} className="mt-6 grid gap-4">
+        <form onSubmit={onSubmit} className={`grid gap-4 ${bare ? "" : "mt-6"}`}>
           {/* honeypot */}
           <input
             type="checkbox"
