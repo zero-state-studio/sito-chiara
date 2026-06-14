@@ -7,7 +7,7 @@ export default function Footer() {
     <footer className="relative mt-auto bg-peach-deep px-5 pb-7 pt-8 sm:px-8 lg:px-12">
       <div className="mx-auto flex max-w-7xl flex-col gap-6 md:flex-row md:items-start md:justify-between">
         <div className="max-w-sm">
-          <FlameLogo withWordmark size={30} />
+          <FlameLogo withWordmark size={24} />
           <p className="mt-3 text-sm text-ink/80">
             Uno spazio sicuro per ritrovare calma ed equilibrio. Scrivimi quando
             te la senti — senza fretta.

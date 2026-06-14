@@ -20,6 +20,14 @@
   --font-script: var(--font-caveat), "Segoe Script", cursive;
 
   --radius-blob: 42% 58% 63% 37% / 41% 44% 56% 59%;
+
+  /* Pin breakpoints in px so the global font-size scale (below) shrinks
+     sizes uniformly without shifting the responsive layout. */
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
 }
 
 /* ----------------------------------------------------------------------------
@@ -31,6 +39,10 @@
 }
 
 html {
+  /* Global scale: 100% now renders like the previous 80% zoom.
+     Everything is rem-based (text, spacing, max-width, clamp bounds),
+     so this shrinks the whole UI uniformly. */
+  font-size: 80%;
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
 }

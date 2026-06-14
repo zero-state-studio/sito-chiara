@@ -71,7 +71,7 @@ export default function Contatti() {
                 title={`Mappa dello studio a ${b.addressLocality} (${b.addressRegion})`}
                 src={`https://www.google.com/maps?q=${encodeURIComponent(mapsQuery)}&z=16&output=embed`}
                 width="100%"
-                height={220}
+                height={176}
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 style={{ border: 0, display: "block" }}
