@@ -71,7 +71,7 @@ export default function Hero() {
         <Blob className="h-80 w-80" tint="peach" opacity={0.45} />
       </motion.div>
 
-      <div className="mx-auto grid max-w-6xl items-center gap-10 md:grid-cols-2 lg:gap-16">
+      <div className="mx-auto grid max-w-7xl items-center gap-10 md:grid-cols-[minmax(300px,380px)_1fr] lg:gap-16">
         {/* left — portrait + wordmark */}
         <motion.div
           initial={{ opacity: 0, scale: reduce ? 1 : 0.94, y: reduce ? 0 : 16 }}
@@ -79,7 +79,7 @@ export default function Hero() {
           transition={{ duration: 0.8, ease }}
           className="order-1 flex flex-col items-center gap-7 md:items-start"
         >
-          <figure className="relative w-full max-w-sm">
+          <figure className="relative w-full max-w-[15rem] md:max-w-sm">
             <span
               aria-hidden="true"
               className="absolute -inset-4 -z-10 rounded-blob bg-peach-deep/45 blur-2xl"
@@ -111,7 +111,7 @@ export default function Hero() {
 
           <motion.h1
             variants={item}
-            className="mt-2 text-[clamp(2.1rem,4.5vw,3.5rem)] font-semibold leading-[1.05] text-ink"
+            className="mt-2 text-[clamp(2rem,3.6vw,3.1rem)] font-semibold leading-[1.08] text-ink"
           >
             {site.landing.hero}
           </motion.h1>
