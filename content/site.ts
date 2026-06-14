@@ -131,7 +131,8 @@ export const site = {
     alboNumber: "11261",
     alboRegion: "Emilia-Romagna",
     alboUrl: "https://www.ordinepsicologier.it/it/albo/11261a-chiara-lodovici",
-    vat: "", // P.IVA — [da inserire]
+    vat: "04121090361",
+    codiceFiscale: "LDVCHR95L45B819M",
   },
 
   contatti: {
@@ -153,7 +154,7 @@ export const site = {
       {
         heading: "Titolare del trattamento",
         body: [
-          "Chiara Lodovici, psicologa (iscritta all’Albo degli Psicologi dell’Emilia-Romagna n° 11261) — Studio A Mente Aperta, Via Giovanni XXIII 110, 41012 Carpi (MO). Email: psico.chiaralodovici@gmail.com. Tel: +39 346 0874159. [Inserire eventuale P.IVA / codice fiscale.]",
+          "Chiara Lodovici, psicologa (iscritta all’Albo degli Psicologi dell’Emilia-Romagna n° 11261) — Studio A Mente Aperta, Via Giovanni XXIII 110, 41012 Carpi (MO). Email: psico.chiaralodovici@gmail.com. Tel: +39 346 0874159. P.IVA 04121090361 — C.F. LDVCHR95L45B819M.",
         ],
       },
       {
