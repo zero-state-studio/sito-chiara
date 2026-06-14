@@ -14,6 +14,39 @@ export const metadata: Metadata = {
 
 const tints = ["glow", "peach", "brand", "peach"] as const;
 
+// Thin line icons, one per service (same order as the content).
+const iconProps = {
+  viewBox: "0 0 24 24",
+  fill: "none",
+  stroke: "currentColor",
+  strokeWidth: 1.4,
+  strokeLinecap: "round" as const,
+  strokeLinejoin: "round" as const,
+  className: "h-9 w-9",
+  "aria-hidden": true,
+};
+
+const serviceIcons = [
+  // percorsi individuali / coppia / familiari — due persone
+  <svg key="people" {...iconProps}>
+    <circle cx="9" cy="8" r="3" />
+    <path d="M3.5 19c0-3.3 2.5-5.5 5.5-5.5s5.5 2.2 5.5 5.5" />
+    <circle cx="17" cy="9.5" r="2.3" />
+    <path d="M15.2 13.8c2.3.3 4.3 2.1 4.3 5.2" />
+  </svg>,
+  // formazioni esperienziali — germoglio / crescita
+  <svg key="sprout" {...iconProps}>
+    <path d="M12 21v-8" />
+    <path d="M12 13C12 9.7 9.5 7.5 5.5 7.5 5.5 10.8 8 13 12 13Z" />
+    <path d="M12 12c0-3 2.3-5.2 6-5.2 0 3-2.3 5.2-6 5.2Z" />
+  </svg>,
+  // laboratori — scintille / creatività
+  <svg key="spark" {...iconProps}>
+    <path d="M11 3.5l1.7 4.6 4.6 1.7-4.6 1.7L11 16.1l-1.7-4.6L4.7 9.8l4.6-1.7z" />
+    <path d="M18.5 15l.6 1.8 1.8.6-1.8.6-.6 1.8-.6-1.8-1.8-.6 1.8-.6z" />
+  </svg>,
+];
+
 export default function CosaFaccio() {
   return (
     <>
@@ -50,8 +83,8 @@ export default function CosaFaccio() {
                               : "radial-gradient(circle at 35% 30%, var(--color-peach), var(--color-peach-deep))",
                       }}
                     />
-                    <span className="relative font-script text-4xl text-ink/70">
-                      {s.title.charAt(0)}
+                    <span className="relative text-ink/80">
+                      {serviceIcons[i] ?? serviceIcons[0]}
                     </span>
                   </div>
 
