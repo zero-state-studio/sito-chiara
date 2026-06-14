@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { site } from "@/content/site";
 
-const base = process.env.NEXT_PUBLIC_SITE_URL ?? "https://chiaralodovici.it";
+const base = process.env.NEXT_PUBLIC_SITE_URL ?? "https://psicochiaralodovici.it";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const pages = site.nav.map((n) => ({

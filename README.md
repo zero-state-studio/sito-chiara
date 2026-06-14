@@ -38,7 +38,7 @@ gratuita associata a `psico.chiaralodovici@gmail.com` e impostala in
 1. Importa il repo su Vercel (preset Next.js, zero config).
 2. Imposta le variabili d'ambiente in **Project Settings → Environment Variables**:
    - `NEXT_PUBLIC_WEB3FORMS_KEY` — access key Web3Forms
-   - `NEXT_PUBLIC_SITE_URL` — URL pubblico (es. `https://chiaralodovici.it`), usato da
+   - `NEXT_PUBLIC_SITE_URL` — URL pubblico (es. `https://psicochiaralodovici.it`), usato da
      metadata, `robots.txt` e `sitemap.xml`
 3. Deploy.
 
