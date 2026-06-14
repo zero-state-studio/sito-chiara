@@ -3,6 +3,7 @@ import { Literata, Nunito, Caveat } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import ScrollToTop from "@/components/ScrollToTop";
 import { site } from "@/content/site";
 import { SITE_URL, siteJsonLd } from "@/lib/seo";
 import "./globals.css";
@@ -64,6 +65,7 @@ export default function RootLayout({
         >
           Salta al contenuto
         </a>
+        <ScrollToTop />
         <Navbar />
         <main id="main" className="flex-1 pt-[4.5rem]">
           {children}
