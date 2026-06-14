@@ -39,7 +39,9 @@ export default function ContactBox({ bare = false }: { bare?: boolean }) {
     data.append("access_key", process.env.NEXT_PUBLIC_WEB3FORMS_KEY ?? "");
     data.append("subject", `Nuovo contatto dal sito — ${site.name}`);
     data.append("from_name", "Sito Chiara Lodovici");
-    data.append("h-captcha-response", token);
+    // set (not append): replace any empty/duplicate field the widget injected
+    // so exactly one valid token reaches Web3Forms.
+    data.set("h-captcha-response", token);
 
     try {
       const res = await fetch("https://api.web3forms.com/submit", {
