@@ -83,7 +83,7 @@ export default function Hero() {
             show: { opacity: 1, scale: 1, rotate: 0, transition: { duration: 0.9, ease } },
           }}
         >
-          <FlameLogo size={53} />
+          <FlameLogo size={58} />
         </motion.div>
 
         <motion.h1

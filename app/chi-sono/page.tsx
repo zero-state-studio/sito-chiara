@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 export default function ChiSono() {
   return (
     <>
-      <Section>
+      <Section className="pt-8! sm:pt-12!">
         <Blob className="right-[-5rem] top-[-1rem] h-72 w-72" tint="peach" opacity={0.5} />
         <div className="grid items-center gap-10 md:grid-cols-[1.25fr_1fr]">
           <Reveal>

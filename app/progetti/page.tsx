@@ -18,7 +18,7 @@ const accents = ["var(--color-brand-glow)", "var(--color-peach-deep)"];
 export default function Progetti() {
   return (
     <>
-      <Section>
+      <Section className="pt-8! sm:pt-12!">
         <Blob className="right-[-4rem] top-0 h-72 w-72" tint="peach" opacity={0.45} />
         <Reveal>
           <h1 className="text-[clamp(2.2rem,5vw,3.5rem)] font-semibold text-ink">

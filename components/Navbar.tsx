@@ -42,7 +42,7 @@ export default function Navbar() {
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3 sm:px-8">
         <Link href="/" aria-label={`${site.name} — home`} className="z-10">
-          <FlameLogo size={26} />
+          <FlameLogo size={28} />
         </Link>
 
         {/* desktop */}

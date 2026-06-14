@@ -39,10 +39,9 @@
 }
 
 html {
-  /* Global scale: 100% now renders like the previous 80% zoom.
-     Everything is rem-based (text, spacing, max-width, clamp bounds),
-     so this shrinks the whole UI uniformly. */
-  font-size: 80%;
+  /* Global UI scale (everything is rem-based: text, spacing, max-width,
+     clamp bounds). 88% ≈ a 110% bump over the previous 80% scale. */
+  font-size: 88%;
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
 }

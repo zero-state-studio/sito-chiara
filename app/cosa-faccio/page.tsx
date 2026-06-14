@@ -17,7 +17,7 @@ const tints = ["glow", "peach", "brand", "peach"] as const;
 export default function CosaFaccio() {
   return (
     <>
-      <Section>
+      <Section className="pt-8! sm:pt-12!">
         <Blob className="left-[-5rem] top-0 h-72 w-72" tint="glow" opacity={0.45} />
         <Reveal>
           <h1 className="text-[clamp(2.2rem,5vw,3.5rem)] font-semibold text-ink">
