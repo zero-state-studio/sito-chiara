@@ -24,13 +24,9 @@ export default function Contatti() {
         <div className="grid gap-10 md:grid-cols-2 md:items-start">
           {/* info */}
           <Reveal>
-            <p className="font-script text-2xl text-brand-deep">Scrivimi</p>
-            <h1 className="mt-1 text-[clamp(2.2rem,5vw,3.5rem)] font-semibold text-ink">
-              {site.contatti.title}
+            <h1 className="font-script text-[clamp(2.6rem,5vw,3.75rem)] leading-[0.95] text-brand-deep">
+              Scrivimi
             </h1>
-            <p className="mt-4 max-w-md text-lg leading-relaxed text-ink/85">
-              {site.contatti.intro}
-            </p>
             <address className="mt-6 grid gap-3 not-italic text-ink/85">
               <p className="flex items-start gap-2.5">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true" className="mt-0.5 shrink-0 text-brand-deep">
@@ -70,7 +66,7 @@ export default function Contatti() {
 
           {/* form (no duplicate heading — the page already says "Parliamone") */}
           <Reveal delay={120}>
-            <ContactBox bare />
+            <ContactBox />
           </Reveal>
         </div>
 
