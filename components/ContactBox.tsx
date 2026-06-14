@@ -89,6 +89,22 @@ export default function ContactBox({ bare = false }: { bare?: boolean }) {
           </label>
         </div>
 
+        <label className="grid gap-1.5 text-sm font-medium" htmlFor={`${uid}-phone`}>
+          <span>
+            Telefono{" "}
+            <span className="font-normal text-ink-soft">(facoltativo)</span>
+          </span>
+          <input
+            id={`${uid}-phone`}
+            name="phone"
+            type="tel"
+            inputMode="tel"
+            autoComplete="tel"
+            placeholder="Il tuo numero"
+            className={fieldClass}
+          />
+        </label>
+
         <label className="grid gap-1.5 text-sm font-medium" htmlFor={`${uid}-message`}>
           <span>Messaggio</span>
           <textarea
