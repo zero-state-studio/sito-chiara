@@ -5,13 +5,20 @@ import Blob from "@/components/Blob";
 import CtaBand from "@/components/CtaBand";
 import JsonLd from "@/components/JsonLd";
 import { site } from "@/content/site";
-import { breadcrumbJsonLd, servicesJsonLd } from "@/lib/seo";
+import { breadcrumbJsonLd, ogFor, servicesJsonLd } from "@/lib/seo";
+
+const description =
+  "I percorsi della psicologa Chiara Lodovici: individuali, di coppia e familiari, formazioni esperienziali e laboratori.";
 
 export const metadata: Metadata = {
   title: site.cosaFaccio.title,
-  description:
-    "I percorsi della psicologa Chiara Lodovici: individuali, di coppia e familiari, formazioni esperienziali e laboratori.",
+  description,
   alternates: { canonical: "/cosa-faccio" },
+  openGraph: ogFor({
+    title: `${site.cosaFaccio.title} — ${site.name}`,
+    description,
+    path: "/cosa-faccio",
+  }),
 };
 
 const tints = ["glow", "peach", "brand", "peach"] as const;

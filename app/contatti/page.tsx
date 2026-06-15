@@ -6,13 +6,20 @@ import Blob from "@/components/Blob";
 import ContactBox from "@/components/ContactBox";
 import JsonLd from "@/components/JsonLd";
 import { site } from "@/content/site";
-import { breadcrumbJsonLd, contactPageJsonLd } from "@/lib/seo";
+import { breadcrumbJsonLd, contactPageJsonLd, ogFor } from "@/lib/seo";
+
+const description =
+  "Contatta la psicologa Chiara Lodovici a Carpi (Modena): scrivi per un primo colloquio. Risposta riservata e senza impegno.";
 
 export const metadata: Metadata = {
   title: "Contatti",
-  description:
-    "Contatta la psicologa Chiara Lodovici a Carpi (Modena): scrivi per un primo colloquio. Risposta riservata e senza impegno.",
+  description,
   alternates: { canonical: "/contatti" },
+  openGraph: ogFor({
+    title: `Contatti — ${site.name}`,
+    description,
+    path: "/contatti",
+  }),
 };
 
 export default function Contatti() {

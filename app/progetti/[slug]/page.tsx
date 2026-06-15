@@ -8,7 +8,7 @@ import Blob from "@/components/Blob";
 import CtaBand from "@/components/CtaBand";
 import JsonLd from "@/components/JsonLd";
 import { site } from "@/content/site";
-import { breadcrumbJsonLd, projectJsonLd } from "@/lib/seo";
+import { breadcrumbJsonLd, ogFor, projectJsonLd } from "@/lib/seo";
 
 type Params = { params: Promise<{ slug: string }> };
 
@@ -24,6 +24,11 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     title: project.title,
     description: project.summary,
     alternates: { canonical: `/progetti/${slug}` },
+    openGraph: ogFor({
+      title: `${project.title} — ${site.name}`,
+      description: project.summary,
+      path: `/progetti/${slug}`,
+    }),
   };
 }
 

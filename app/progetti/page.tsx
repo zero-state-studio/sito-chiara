@@ -7,13 +7,20 @@ import Blob from "@/components/Blob";
 import CtaBand from "@/components/CtaBand";
 import JsonLd from "@/components/JsonLd";
 import { site } from "@/content/site";
-import { breadcrumbJsonLd, projectsCollectionJsonLd } from "@/lib/seo";
+import { breadcrumbJsonLd, ogFor, projectsCollectionJsonLd } from "@/lib/seo";
+
+const description =
+  "I progetti della psicologa Chiara Lodovici: CALM e «Oltre le parole», iniziative in ambito socio-educativo oltre lo studio.";
 
 export const metadata: Metadata = {
   title: site.progetti.title,
-  description:
-    "I progetti della psicologa Chiara Lodovici: CALM e «Oltre le parole», iniziative in ambito socio-educativo oltre lo studio.",
+  description,
   alternates: { canonical: "/progetti" },
+  openGraph: ogFor({
+    title: `${site.progetti.title} — ${site.name}`,
+    description,
+    path: "/progetti",
+  }),
 };
 
 const accents = ["var(--color-brand-glow)", "var(--color-peach-deep)"];

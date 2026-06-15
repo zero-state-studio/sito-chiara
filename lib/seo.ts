@@ -38,6 +38,14 @@ export function siteJsonLd() {
       : null;
 
   const sameAs = b.sameAs.length > 0 ? { sameAs: b.sameAs } : {};
+
+  // Google Maps link for the studio (helps local discovery / map pin).
+  const mapsQuery = [b.streetAddress, b.postalCode, b.addressLocality, b.addressRegion]
+    .filter(Boolean)
+    .join(", ");
+  const hasMap = mapsQuery
+    ? { hasMap: `https://www.google.com/maps?q=${encodeURIComponent(mapsQuery)}` }
+    : {};
   // The person also points to the public Albo register entry, a strong trust signal.
   const personSameAs = [...b.sameAs, ...(b.alboUrl ? [b.alboUrl] : [])];
 
@@ -82,9 +90,10 @@ export function siteJsonLd() {
   };
 
   const practice = {
-    "@type": ["ProfessionalService", "Psychologist"],
+    "@type": ["ProfessionalService", "Psychologist", "LocalBusiness"],
     "@id": ID.studio,
     name: `${site.name} — Psicologa`,
+    ...(b.studioName ? { alternateName: b.studioName } : {}),
     url: SITE_URL,
     image: url("/chiara.jpg"),
     email: `mailto:${site.email}`,
@@ -94,12 +103,29 @@ export function siteJsonLd() {
     ...(b.telephone ? { telephone: b.telephone } : {}),
     ...(b.areaServed ? { areaServed: b.areaServed } : {}),
     ...(address ? { address } : {}),
+    ...hasMap,
     ...sameAs,
   };
 
   return {
     "@context": "https://schema.org",
     "@graph": [website, person, practice],
+  };
+}
+
+/**
+ * Open Graph block for a page. Spelled out in full (not just `description`)
+ * because a page-level `openGraph` replaces the layout's rather than merging,
+ * so `type`/`locale`/`siteName` must be repeated to survive.
+ */
+export function ogFor(opts: { title: string; description: string; path: string }) {
+  return {
+    type: "website" as const,
+    locale: "it_IT",
+    siteName: site.name,
+    title: opts.title,
+    description: opts.description,
+    url: url(opts.path),
   };
 }
 

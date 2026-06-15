@@ -7,13 +7,20 @@ import Blob from "@/components/Blob";
 import CtaBand from "@/components/CtaBand";
 import JsonLd from "@/components/JsonLd";
 import { site } from "@/content/site";
-import { breadcrumbJsonLd, profilePageJsonLd } from "@/lib/seo";
+import { breadcrumbJsonLd, ogFor, profilePageJsonLd } from "@/lib/seo";
+
+const description =
+  "Chiara Lodovici, psicologa e specializzanda in Psicoterapia Sistemico-Dialogica. Percorsi con adulti e adolescenti; co-founder di CALM.";
 
 export const metadata: Metadata = {
   title: site.chiSono.title,
-  description:
-    "Chiara Lodovici, psicologa e specializzanda in Psicoterapia Sistemico-Dialogica. Percorsi con adulti e adolescenti; co-founder di CALM.",
+  description,
   alternates: { canonical: "/chi-sono" },
+  openGraph: ogFor({
+    title: `${site.chiSono.title} — ${site.name}`,
+    description,
+    path: "/chi-sono",
+  }),
 };
 
 export default function ChiSono() {
