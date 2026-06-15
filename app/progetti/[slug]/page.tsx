@@ -6,7 +6,9 @@ import Section from "@/components/Section";
 import Reveal from "@/components/Reveal";
 import Blob from "@/components/Blob";
 import CtaBand from "@/components/CtaBand";
+import JsonLd from "@/components/JsonLd";
 import { site } from "@/content/site";
+import { breadcrumbJsonLd, projectJsonLd } from "@/lib/seo";
 
 type Params = { params: Promise<{ slug: string }> };
 
@@ -32,6 +34,14 @@ export default async function ProjectDetail({ params }: Params) {
 
   return (
     <>
+      <JsonLd data={projectJsonLd(project)} />
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: site.progetti.title, path: "/progetti" },
+          { name: project.title, path: `/progetti/${project.slug}` },
+        ])}
+      />
       <Section containerClassName="max-w-3xl">
         <Blob className="right-[-5rem] top-0 h-72 w-72" tint="glow" opacity={0.45} />
         <Reveal>

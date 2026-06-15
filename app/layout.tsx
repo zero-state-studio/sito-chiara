@@ -5,6 +5,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
+import JsonLd from "@/components/JsonLd";
 import { site } from "@/content/site";
 import { SITE_URL, siteJsonLd } from "@/lib/seo";
 import "./globals.css";
@@ -78,12 +79,7 @@ export default function RootLayout({
           data-website-id="0ad99cb2-0917-48bd-93a3-d9628b2b2c67"
           strategy="afterInteractive"
         />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(siteJsonLd()).replace(/</g, "\\u003c"),
-          }}
-        />
+        <JsonLd data={siteJsonLd()} />
       </body>
     </html>
   );

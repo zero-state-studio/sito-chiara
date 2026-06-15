@@ -3,7 +3,9 @@ import Section from "@/components/Section";
 import Reveal from "@/components/Reveal";
 import Blob from "@/components/Blob";
 import CtaBand from "@/components/CtaBand";
+import JsonLd from "@/components/JsonLd";
 import { site } from "@/content/site";
+import { breadcrumbJsonLd, servicesJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: site.cosaFaccio.title,
@@ -52,6 +54,13 @@ const serviceIcons = [
 export default function CosaFaccio() {
   return (
     <>
+      <JsonLd data={servicesJsonLd()} />
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: site.cosaFaccio.title, path: "/cosa-faccio" },
+        ])}
+      />
       <Section className="pt-8! sm:pt-12!">
         <Blob className="left-[-5rem] top-0 h-72 w-72" tint="glow" opacity={0.45} />
         <Reveal>

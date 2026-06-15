@@ -5,7 +5,9 @@ import Section from "@/components/Section";
 import Reveal from "@/components/Reveal";
 import Blob from "@/components/Blob";
 import CtaBand from "@/components/CtaBand";
+import JsonLd from "@/components/JsonLd";
 import { site } from "@/content/site";
+import { breadcrumbJsonLd, projectsCollectionJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: site.progetti.title,
@@ -19,6 +21,13 @@ const accents = ["var(--color-brand-glow)", "var(--color-peach-deep)"];
 export default function Progetti() {
   return (
     <>
+      <JsonLd data={projectsCollectionJsonLd()} />
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: site.progetti.title, path: "/progetti" },
+        ])}
+      />
       <Section className="pt-8! sm:pt-12!">
         <Blob className="right-[-4rem] top-0 h-72 w-72" tint="peach" opacity={0.45} />
         <Reveal>

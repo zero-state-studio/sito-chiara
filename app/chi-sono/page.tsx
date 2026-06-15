@@ -5,7 +5,9 @@ import Divider from "@/components/Divider";
 import Reveal from "@/components/Reveal";
 import Blob from "@/components/Blob";
 import CtaBand from "@/components/CtaBand";
+import JsonLd from "@/components/JsonLd";
 import { site } from "@/content/site";
+import { breadcrumbJsonLd, profilePageJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: site.chiSono.title,
@@ -17,6 +19,13 @@ export const metadata: Metadata = {
 export default function ChiSono() {
   return (
     <>
+      <JsonLd data={profilePageJsonLd()} />
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: site.chiSono.title, path: "/chi-sono" },
+        ])}
+      />
       <Section className="pt-8! sm:pt-12!">
         <Blob className="right-[-5rem] top-[-1rem] h-72 w-72" tint="peach" opacity={0.5} />
         <div className="grid items-center gap-10 md:grid-cols-[1.25fr_1fr]">

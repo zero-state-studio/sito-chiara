@@ -4,7 +4,9 @@ import Divider from "@/components/Divider";
 import Reveal from "@/components/Reveal";
 import Blob from "@/components/Blob";
 import ContactBox from "@/components/ContactBox";
+import JsonLd from "@/components/JsonLd";
 import { site } from "@/content/site";
+import { breadcrumbJsonLd, contactPageJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Contatti",
@@ -18,6 +20,13 @@ export default function Contatti() {
   const mapsQuery = `${b.streetAddress}, ${b.postalCode} ${b.addressLocality} ${b.addressRegion}`;
   return (
     <>
+      <JsonLd data={contactPageJsonLd()} />
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "Contatti", path: "/contatti" },
+        ])}
+      />
       <Section className="pt-8! sm:pt-12!">
         <Blob className="left-[-5rem] top-6 h-72 w-72" tint="glow" opacity={0.5} />
 
