@@ -69,9 +69,12 @@ export default function RootLayout({
         </a>
         <ScrollToTop />
         <Navbar />
-        <main id="main" className="flex-1 pt-[4.5rem]">
+        <main id="main" className="pt-[4.5rem]">
           {children}
         </main>
+        {/* On short pages this grows to fill the viewport in the footer's color,
+            so the closing band melts into the footer with no white gap. */}
+        <div aria-hidden="true" className="flex-1 bg-peach-deep" />
         <Footer />
         <SpeedInsights />
         <Script

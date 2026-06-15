@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import Section from "@/components/Section";
+import Divider from "@/components/Divider";
 import Reveal from "@/components/Reveal";
 import Blob from "@/components/Blob";
 import { site } from "@/content/site";
@@ -15,6 +16,7 @@ export const metadata: Metadata = {
 
 export default function ThankYou() {
   return (
+    <>
     <Section
       className="pt-8! sm:pt-12!"
       containerClassName="max-w-2xl text-center"
@@ -53,5 +55,7 @@ export default function ThankYou() {
         </Link>
       </Reveal>
     </Section>
+    <Divider from="canvas" to="peach-deep" />
+    </>
   );
 }

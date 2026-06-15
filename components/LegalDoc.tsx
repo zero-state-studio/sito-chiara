@@ -1,4 +1,5 @@
 import Section from "./Section";
+import Divider from "./Divider";
 import Reveal from "./Reveal";
 import Blob from "./Blob";
 
@@ -12,6 +13,7 @@ type Doc = {
 /** Renders a legal document (privacy / cookie policy) from structured content. */
 export default function LegalDoc({ doc }: { doc: Doc }) {
   return (
+    <>
     <Section className="pt-8! sm:pt-12!" containerClassName="max-w-3xl">
       <Blob className="right-[-5rem] top-0 h-72 w-72" tint="peach" opacity={0.4} />
 
@@ -40,5 +42,7 @@ export default function LegalDoc({ doc }: { doc: Doc }) {
         ))}
       </div>
     </Section>
+    <Divider from="canvas" to="peach-deep" />
+    </>
   );
 }
