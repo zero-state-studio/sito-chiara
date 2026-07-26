@@ -126,8 +126,12 @@ export const site = {
     addressLocality: "Carpi",
     addressRegion: "MO",
     postalCode: "41012",
-    sameAs: ["https://www.linkedin.com/in/chiara-lodovici-6ab69114b/"],
+    sameAs: [
+      "https://www.linkedin.com/in/chiara-lodovici-6ab69114b/",
+      "https://www.instagram.com/psico.chiaralodovici/",
+    ],
     linkedin: "https://www.linkedin.com/in/chiara-lodovici-6ab69114b/",
+    instagram: "https://www.instagram.com/psico.chiaralodovici/",
     alboNumber: "11261",
     alboRegion: "Emilia-Romagna",
     alboUrl: "https://www.ordinepsicologier.it/it/albo/11261a-chiara-lodovici",
