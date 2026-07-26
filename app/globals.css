@@ -20,6 +20,14 @@
   --font-script: var(--font-caveat), "Segoe Script", cursive;
 
   --radius-blob: 42% 58% 63% 37% / 41% 44% 56% 59%;
+
+  /* Pin breakpoints in px so the global font-size scale (below) shrinks
+     sizes uniformly without shifting the responsive layout. */
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
 }
 
 /* ----------------------------------------------------------------------------
@@ -31,6 +39,9 @@
 }
 
 html {
+  /* Global UI scale (everything is rem-based: text, spacing, max-width,
+     clamp bounds). 88% ≈ a 110% bump over the previous 80% scale. */
+  font-size: 88%;
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
 }
@@ -49,16 +60,19 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-h1,
-h2,
-h3 {
-  font-family: var(--font-display);
-  text-wrap: balance;
-  letter-spacing: -0.02em;
-}
+/* In @layer base so utilities like `font-script` can override the default. */
+@layer base {
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    text-wrap: balance;
+    letter-spacing: -0.02em;
+  }
 
-p {
-  text-wrap: pretty;
+  p {
+    text-wrap: pretty;
+  }
 }
 
 ::selection {

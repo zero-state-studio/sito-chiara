@@ -3,19 +3,72 @@ import Section from "@/components/Section";
 import Reveal from "@/components/Reveal";
 import Blob from "@/components/Blob";
 import CtaBand from "@/components/CtaBand";
+import JsonLd from "@/components/JsonLd";
 import { site } from "@/content/site";
+import { breadcrumbJsonLd, ogFor, servicesJsonLd } from "@/lib/seo";
+
+const description =
+  "I percorsi della psicologa Chiara Lodovici: individuali, di coppia e familiari, formazioni esperienziali e laboratori.";
 
 export const metadata: Metadata = {
   title: site.cosaFaccio.title,
-  description: site.cosaFaccio.lead,
+  description,
+  alternates: { canonical: "/cosa-faccio" },
+  openGraph: ogFor({
+    title: `${site.cosaFaccio.title} — ${site.name}`,
+    description,
+    path: "/cosa-faccio",
+  }),
 };
 
 const tints = ["glow", "peach", "brand", "peach"] as const;
 
+// Thin line icons, one per service (same order as the content).
+const iconProps = {
+  viewBox: "0 0 24 24",
+  fill: "none",
+  stroke: "currentColor",
+  strokeWidth: 1.4,
+  strokeLinecap: "round" as const,
+  strokeLinejoin: "round" as const,
+  className: "h-9 w-9",
+  "aria-hidden": true,
+};
+
+const serviceIcons = [
+  // percorsi individuali / coppia / familiari — due persone
+  <svg key="people" {...iconProps}>
+    <circle cx="9" cy="8" r="3" />
+    <path d="M3.5 19c0-3.3 2.5-5.5 5.5-5.5s5.5 2.2 5.5 5.5" />
+    <circle cx="17" cy="9.5" r="2.3" />
+    <path d="M15.2 13.8c2.3.3 4.3 2.1 4.3 5.2" />
+  </svg>,
+  // formazioni esperienziali — germoglio / crescita
+  <svg key="sprout" {...iconProps}>
+    <path d="M12 21v-8" />
+    <path d="M12 13C12 9.7 9.5 7.5 5.5 7.5 5.5 10.8 8 13 12 13Z" />
+    <path d="M12 12c0-3 2.3-5.2 6-5.2 0 3-2.3 5.2-6 5.2Z" />
+  </svg>,
+  // laboratori — mattoncino LEGO stilizzato (3 bottoni)
+  <svg key="lego" {...iconProps} className="h-10 w-10">
+    <path d="M6 9V7.5a1.3 1.3 0 0 1 2.6 0V9" />
+    <path d="M10.7 9V7.5a1.3 1.3 0 0 1 2.6 0V9" />
+    <path d="M15.4 9V7.5a1.3 1.3 0 0 1 2.6 0V9" />
+    <rect x="3.5" y="9" width="17" height="9" rx="1.6" />
+  </svg>,
+];
+
 export default function CosaFaccio() {
   return (
     <>
-      <Section>
+      <JsonLd data={servicesJsonLd()} />
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: site.cosaFaccio.title, path: "/cosa-faccio" },
+        ])}
+      />
+      <Section className="pt-8! sm:pt-12!">
         <Blob className="left-[-5rem] top-0 h-72 w-72" tint="glow" opacity={0.45} />
         <Reveal>
           <h1 className="text-[clamp(2.2rem,5vw,3.5rem)] font-semibold text-ink">
@@ -48,8 +101,8 @@ export default function CosaFaccio() {
                               : "radial-gradient(circle at 35% 30%, var(--color-peach), var(--color-peach-deep))",
                       }}
                     />
-                    <span className="relative font-script text-4xl text-ink/70">
-                      {s.title.charAt(0)}
+                    <span className="relative text-ink/80">
+                      {serviceIcons[i] ?? serviceIcons[0]}
                     </span>
                   </div>
 

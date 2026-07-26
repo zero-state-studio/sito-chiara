@@ -3,8 +3,22 @@ import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import ContactBox from "@/components/ContactBox";
 
+const { pushMock } = vi.hoisted(() => ({ pushMock: vi.fn() }));
+
+vi.mock("next/navigation", () => ({
+  useRouter: () => ({ push: pushMock }),
+}));
+
+async function fillForm(user: ReturnType<typeof userEvent.setup>) {
+  await user.type(screen.getByLabelText(/nome/i), "Mario");
+  await user.type(screen.getByLabelText(/email/i), "mario@test.it");
+  await user.type(screen.getByLabelText(/messaggio/i), "Ciao Chiara");
+  await user.click(screen.getByRole("checkbox")); // consenso privacy
+}
+
 describe("ContactBox", () => {
   beforeEach(() => {
+    pushMock.mockClear();
     vi.stubGlobal(
       "fetch",
       vi.fn(() =>
@@ -29,17 +43,13 @@ describe("ContactBox", () => {
     expect(screen.getByLabelText(/messaggio/i)).toBeInTheDocument();
   });
 
-  it("submits to Web3Forms and shows a success message", async () => {
+  it("submits to Web3Forms and redirects to /thank-you on success", async () => {
     const user = userEvent.setup();
     render(<ContactBox />);
-    await user.type(screen.getByLabelText(/nome/i), "Mario");
-    await user.type(screen.getByLabelText(/email/i), "mario@test.it");
-    await user.type(screen.getByLabelText(/messaggio/i), "Ciao Chiara");
+    await fillForm(user);
     await user.click(screen.getByRole("button", { name: /invia/i }));
 
-    await waitFor(() =>
-      expect(screen.getByText(/grazie/i)).toBeInTheDocument(),
-    );
+    await waitFor(() => expect(pushMock).toHaveBeenCalledWith("/thank-you"));
     expect(fetch).toHaveBeenCalledWith(
       "https://api.web3forms.com/submit",
       expect.objectContaining({ method: "POST" }),
@@ -58,13 +68,12 @@ describe("ContactBox", () => {
     );
     const user = userEvent.setup();
     render(<ContactBox />);
-    await user.type(screen.getByLabelText(/nome/i), "Mario");
-    await user.type(screen.getByLabelText(/email/i), "mario@test.it");
-    await user.type(screen.getByLabelText(/messaggio/i), "Ciao");
+    await fillForm(user);
     await user.click(screen.getByRole("button", { name: /invia/i }));
 
     await waitFor(() =>
       expect(screen.getByText(/riprova/i)).toBeInTheDocument(),
     );
+    expect(pushMock).not.toHaveBeenCalled();
   });
 });

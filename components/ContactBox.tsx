@@ -1,15 +1,18 @@
 "use client";
 
 import { useId, useState } from "react";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
 import { site } from "@/content/site";
 
-type Status = "idle" | "sending" | "success" | "error";
+type Status = "idle" | "sending" | "error";
 
 const fieldClass =
   "rounded-2xl border border-line bg-canvas/80 px-4 py-3 text-ink outline-none transition focus:border-brand placeholder:text-ink-soft/70";
 
-export default function ContactBox() {
+export default function ContactBox({ bare = false }: { bare?: boolean }) {
   const [status, setStatus] = useState<Status>("idle");
+  const router = useRouter();
   const uid = useId();
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -28,8 +31,8 @@ export default function ContactBox() {
       });
       const json = await res.json();
       if (json.success) {
-        setStatus("success");
         form.reset();
+        router.push("/thank-you");
       } else {
         setStatus("error");
       }
@@ -40,91 +43,126 @@ export default function ContactBox() {
 
   return (
     <div className="relative overflow-hidden rounded-[2rem] bg-peach px-6 py-8 shadow-[0_18px_50px_-24px_oklch(0.55_0.15_42/0.5)] ring-1 ring-brand/15 sm:px-9 sm:py-10">
-      <h2 className="font-display text-3xl text-brand-deep sm:text-4xl">
-        {site.contatti.title}
-      </h2>
-      <p className="mt-2 max-w-prose text-ink/85">{site.contatti.intro}</p>
+      {!bare && (
+        <>
+          <h2 className="font-display text-4xl text-brand-deep sm:text-5xl">
+            {site.contatti.title}
+          </h2>
+          <p className="mt-2 max-w-prose text-ink/85">{site.contatti.intro}</p>
+        </>
+      )}
 
-      {status === "success" ? (
-        <div className="mt-6 rounded-2xl bg-canvas/80 px-5 py-6" role="status">
-          <p className="font-display text-2xl text-brand-deep">Grazie di cuore.</p>
-          <p className="mt-1 text-ink/80">
-            Il tuo messaggio è arrivato. Ti risponderò il prima possibile.
-          </p>
-        </div>
-      ) : (
-        <form onSubmit={onSubmit} className="mt-6 grid gap-4">
-          {/* honeypot */}
-          <input
-            type="checkbox"
-            name="botcheck"
-            className="hidden"
-            tabIndex={-1}
-            autoComplete="off"
-            aria-hidden="true"
-          />
+      <form onSubmit={onSubmit} className={`grid gap-4 ${bare ? "" : "mt-6"}`}>
+        {/* honeypot */}
+        <input
+          type="checkbox"
+          name="botcheck"
+          className="hidden"
+          tabIndex={-1}
+          autoComplete="off"
+          aria-hidden="true"
+        />
 
-          <div className="grid gap-4 sm:grid-cols-2">
-            <label className="grid gap-1.5 text-sm font-medium" htmlFor={`${uid}-name`}>
-              <span>Nome</span>
-              <input
-                id={`${uid}-name`}
-                name="name"
-                type="text"
-                required
-                autoComplete="name"
-                placeholder="Come ti chiami"
-                className={fieldClass}
-              />
-            </label>
-            <label className="grid gap-1.5 text-sm font-medium" htmlFor={`${uid}-email`}>
-              <span>Email</span>
-              <input
-                id={`${uid}-email`}
-                name="email"
-                type="email"
-                required
-                autoComplete="email"
-                placeholder="La tua email"
-                className={fieldClass}
-              />
-            </label>
-          </div>
-
-          <label className="grid gap-1.5 text-sm font-medium" htmlFor={`${uid}-message`}>
-            <span>Messaggio</span>
-            <textarea
-              id={`${uid}-message`}
-              name="message"
+        <div className="grid gap-4 sm:grid-cols-2">
+          <label className="grid gap-1.5 text-sm font-medium" htmlFor={`${uid}-name`}>
+            <span>Nome</span>
+            <input
+              id={`${uid}-name`}
+              name="name"
+              type="text"
               required
-              rows={4}
-              placeholder="Scrivimi pure quello che ti va di condividere"
-              className={`${fieldClass} resize-y`}
+              autoComplete="name"
+              placeholder="Come ti chiami"
+              className={fieldClass}
             />
           </label>
+          <label className="grid gap-1.5 text-sm font-medium" htmlFor={`${uid}-email`}>
+            <span>Email</span>
+            <input
+              id={`${uid}-email`}
+              name="email"
+              type="email"
+              required
+              autoComplete="email"
+              placeholder="La tua email"
+              className={fieldClass}
+            />
+          </label>
+        </div>
 
-          <div className="mt-1 flex flex-wrap items-center gap-x-4 gap-y-2">
-            <button
-              type="submit"
-              disabled={status === "sending"}
-              className="rounded-full bg-brand px-7 py-3 font-semibold text-ink shadow-sm transition hover:bg-brand-deep hover:text-canvas disabled:cursor-not-allowed disabled:opacity-60"
+        <label className="grid gap-1.5 text-sm font-medium" htmlFor={`${uid}-phone`}>
+          <span>
+            Telefono{" "}
+            <span className="font-normal text-ink-soft">(facoltativo)</span>
+          </span>
+          <input
+            id={`${uid}-phone`}
+            name="phone"
+            type="tel"
+            inputMode="tel"
+            autoComplete="tel"
+            placeholder="Il tuo numero"
+            className={fieldClass}
+          />
+        </label>
+
+        <label className="grid gap-1.5 text-sm font-medium" htmlFor={`${uid}-message`}>
+          <span>Messaggio</span>
+          <textarea
+            id={`${uid}-message`}
+            name="message"
+            required
+            rows={4}
+            placeholder="Scrivimi pure quello che ti va di condividere"
+            className={`${fieldClass} resize-y`}
+          />
+        </label>
+
+        <div className="flex items-start gap-2.5 text-sm text-ink/80">
+          <input
+            id={`${uid}-consent`}
+            name="consent"
+            type="checkbox"
+            required
+            className="mt-0.5 size-4 shrink-0 accent-brand"
+          />
+          <label htmlFor={`${uid}-consent`}>
+            Ho letto e accetto la{" "}
+            <Link
+              href="/privacy"
+              target="_blank"
+              className="underline hover:text-brand-deep"
+              onClick={(e) => e.stopPropagation()}
             >
-              {status === "sending" ? "Invio in corso…" : site.contatti.submit}
-            </button>
-            <span className="text-xs text-ink-soft">{site.contatti.formNote}</span>
-          </div>
+              Privacy Policy
+            </Link>{" "}
+            e acconsento al trattamento dei miei dati personali, inclusa la loro
+            trasmissione a Web3Forms e Google (USA), ai sensi del Regolamento UE
+            2016/679.
+          </label>
+        </div>
 
-          {status === "error" && (
-            <p className="text-sm font-medium text-brand-deep" role="alert">
-              Qualcosa è andato storto nell’invio. Riprova, oppure scrivimi a{" "}
-              <a className="underline" href={`mailto:${site.email}`}>
-                {site.email}
-              </a>
-              .
-            </p>
-          )}
-        </form>
-      )}
+        <div className="mt-1 flex flex-wrap items-center gap-x-4 gap-y-2">
+          <button
+            type="submit"
+            disabled={status === "sending"}
+            className="rounded-full bg-brand px-7 py-3 font-semibold text-ink shadow-sm transition hover:bg-brand-deep hover:text-canvas disabled:cursor-not-allowed disabled:opacity-60"
+          >
+            {status === "sending" ? "Invio in corso…" : site.contatti.submit}
+          </button>
+          <span className="text-xs text-ink-soft">{site.contatti.formNote}</span>
+        </div>
+
+        {status === "error" && (
+          <p className="text-sm font-medium text-brand-deep" role="alert">
+            Qualcosa è andato storto nell’invio. Riprova, oppure scrivimi a{" "}
+            <a className="underline" href={`mailto:${site.email}`}>
+              {site.email}
+            </a>
+            .
+          </p>
+        )}
+      </form>
     </div>
   );
 }

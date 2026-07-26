@@ -70,8 +70,12 @@ export default function FlameLogo({
       </svg>
       {withWordmark && (
         <span className="font-script leading-[0.95]">
-          <span className="block text-[1.35rem] text-ink">{site.name}</span>
-          <span className="block text-base text-brand-deep">{site.role}</span>
+          <span className="block text-ink" style={{ fontSize: size * 0.78 }}>
+            {site.name}
+          </span>
+          <span className="block text-brand-deep" style={{ fontSize: size * 0.5 }}>
+            {site.role}
+          </span>
         </span>
       )}
     </span>

@@ -1,8 +1,13 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Literata, Nunito, Caveat } from "next/font/google";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import ScrollToTop from "@/components/ScrollToTop";
+import JsonLd from "@/components/JsonLd";
 import { site } from "@/content/site";
+import { SITE_URL, siteJsonLd } from "@/lib/seo";
 import "./globals.css";
 
 const literata = Literata({
@@ -25,17 +30,16 @@ const caveat = Caveat({
 });
 
 const description =
-  "Chiara Lodovici, psicologa. Uno spazio sicuro e accogliente per ritrovare calma, equilibrio e benessere. Terapia individuale, di coppia e gestione dell'ansia.";
+  "Chiara Lodovici, psicologa: percorsi individuali, di coppia e familiari, formazioni e laboratori. Uno spazio per osservarsi e acquisire consapevolezza.";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL ?? "https://chiaralodovici.it",
-  ),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: `${site.name} — ${site.role}`,
     template: `%s — ${site.name}`,
   },
   description,
+  alternates: { canonical: "/" },
   openGraph: {
     title: `${site.name} — ${site.role}`,
     description,
@@ -63,11 +67,22 @@ export default function RootLayout({
         >
           Salta al contenuto
         </a>
+        <ScrollToTop />
         <Navbar />
-        <main id="main" className="flex-1 pt-[4.5rem]">
+        <main id="main" className="pt-[4.5rem]">
           {children}
         </main>
+        {/* On short pages this grows to fill the viewport in the footer's color,
+            so the closing band melts into the footer with no white gap. */}
+        <div aria-hidden="true" className="flex-1 bg-peach-deep" />
         <Footer />
+        <SpeedInsights />
+        <Script
+          src="https://cloud.umami.is/script.js"
+          data-website-id="0ad99cb2-0917-48bd-93a3-d9628b2b2c67"
+          strategy="afterInteractive"
+        />
+        <JsonLd data={siteJsonLd()} />
       </body>
     </html>
   );

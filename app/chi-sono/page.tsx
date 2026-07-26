@@ -1,20 +1,39 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Section from "@/components/Section";
+import Divider from "@/components/Divider";
 import Reveal from "@/components/Reveal";
 import Blob from "@/components/Blob";
 import CtaBand from "@/components/CtaBand";
+import JsonLd from "@/components/JsonLd";
 import { site } from "@/content/site";
+import { breadcrumbJsonLd, ogFor, profilePageJsonLd } from "@/lib/seo";
+
+const description =
+  "Chiara Lodovici, psicologa e specializzanda in Psicoterapia Sistemico-Dialogica. Percorsi con adulti e adolescenti; co-founder di CALM.";
 
 export const metadata: Metadata = {
   title: site.chiSono.title,
-  description: site.chiSono.body[0],
+  description,
+  alternates: { canonical: "/chi-sono" },
+  openGraph: ogFor({
+    title: `${site.chiSono.title} — ${site.name}`,
+    description,
+    path: "/chi-sono",
+  }),
 };
 
 export default function ChiSono() {
   return (
     <>
-      <Section>
+      <JsonLd data={profilePageJsonLd()} />
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: site.chiSono.title, path: "/chi-sono" },
+        ])}
+      />
+      <Section className="pt-8! sm:pt-12!">
         <Blob className="right-[-5rem] top-[-1rem] h-72 w-72" tint="peach" opacity={0.5} />
         <div className="grid items-center gap-10 md:grid-cols-[1.25fr_1fr]">
           <Reveal>
@@ -56,6 +75,8 @@ export default function ChiSono() {
           </Reveal>
         </div>
       </Section>
+
+      <Divider from="canvas" to="peach" />
 
       {/* values */}
       <Section tone="peach" containerClassName="max-w-4xl text-center">

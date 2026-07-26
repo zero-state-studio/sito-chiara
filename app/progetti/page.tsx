@@ -1,14 +1,26 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import Section from "@/components/Section";
 import Reveal from "@/components/Reveal";
 import Blob from "@/components/Blob";
 import CtaBand from "@/components/CtaBand";
+import JsonLd from "@/components/JsonLd";
 import { site } from "@/content/site";
+import { breadcrumbJsonLd, ogFor, projectsCollectionJsonLd } from "@/lib/seo";
+
+const description =
+  "I progetti della psicologa Chiara Lodovici: CALM e «Oltre le parole», iniziative in ambito socio-educativo oltre lo studio.";
 
 export const metadata: Metadata = {
   title: site.progetti.title,
-  description: site.progetti.lead,
+  description,
+  alternates: { canonical: "/progetti" },
+  openGraph: ogFor({
+    title: `${site.progetti.title} — ${site.name}`,
+    description,
+    path: "/progetti",
+  }),
 };
 
 const accents = ["var(--color-brand-glow)", "var(--color-peach-deep)"];
@@ -16,7 +28,14 @@ const accents = ["var(--color-brand-glow)", "var(--color-peach-deep)"];
 export default function Progetti() {
   return (
     <>
-      <Section>
+      <JsonLd data={projectsCollectionJsonLd()} />
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: site.progetti.title, path: "/progetti" },
+        ])}
+      />
+      <Section className="pt-8! sm:pt-12!">
         <Blob className="right-[-4rem] top-0 h-72 w-72" tint="peach" opacity={0.45} />
         <Reveal>
           <h1 className="text-[clamp(2.2rem,5vw,3.5rem)] font-semibold text-ink">
@@ -37,9 +56,22 @@ export default function Progetti() {
                   className="absolute -right-8 -top-8 h-28 w-28 rounded-blob opacity-80 transition-transform duration-500 group-hover:scale-125"
                   style={{ background: accents[i % accents.length] }}
                 />
-                <h2 className="relative text-2xl font-semibold text-brand-deep sm:text-3xl">
-                  {p.title}
-                </h2>
+                {p.logo ? (
+                  <>
+                    <Image
+                      src={p.logo}
+                      alt=""
+                      width={200}
+                      height={64}
+                      className="relative h-12 w-auto object-contain"
+                    />
+                    <h2 className="sr-only">{p.title}</h2>
+                  </>
+                ) : (
+                  <h2 className="relative text-2xl font-semibold text-brand-deep sm:text-3xl">
+                    {p.title}
+                  </h2>
+                )}
                 <p className="relative mt-3 flex-1 text-ink/80">{p.summary}</p>
                 <span className="relative mt-5 inline-flex items-center gap-2 font-medium text-brand-deep">
                   Scopri il progetto
